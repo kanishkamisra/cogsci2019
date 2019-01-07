@@ -18,3 +18,11 @@ errors %>%
 
 
 answers %>% View()
+
+errors %>%
+  filter(!is.na(i), !is.na(c)) %>%
+  filter(type %in% c("RJ", "RN", "RV", "RY", "RQ")) %>%
+  select(language, type, i, c, file_name) %>%
+  distinct(language)
+
+2
