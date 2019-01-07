@@ -4,7 +4,7 @@ errors <- read_csv("data/parsed.csv")
 answers <- read_csv("data/answers_parsed.csv")
 
 errors %>%
-  select(i, c) %>%
+  select(i, c, type) %>%
   View()
 
 errors %>%
@@ -23,6 +23,11 @@ errors %>%
   filter(!is.na(i), !is.na(c)) %>%
   filter(type %in% c("RJ", "RN", "RV", "RY", "RQ")) %>%
   select(language, type, i, c, file_name) %>%
-  distinct(language)
+  count(language, sort = T)
 
-2
+errors %>%
+  filter(!is.na(i), !is.na(c)) %>%
+  filter(str_detect(type, "R")) %>%
+  filter(!(type %in% c("RP", "R"))) %>%
+  count(language, sort = T)
+
