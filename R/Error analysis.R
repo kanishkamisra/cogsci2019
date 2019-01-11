@@ -16,13 +16,17 @@ errors %>%
   filter(lv_dist > 3) %>%
   View()
 
-
 answers %>% View()
 
 errors %>%
   filter(!is.na(i), !is.na(c)) %>%
   filter(type %in% c("RJ", "RN", "RV", "RY", "RQ")) %>%
   select(language, type, i, c, file_name) %>%
+  mutate(
+    i_count = map_int(i, ~length(str_split(.x, " ", simplify = T))),
+    c_count = map_int(c, ~length(str_split(.x, " ", simplify = T))),
+  ) %>%
+  filter(i_count == 1, c_count == 1) %>%
   count(language, sort = T)
 
 errors %>%
