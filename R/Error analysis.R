@@ -30,7 +30,6 @@ single_word_errors %>%
 # unique people making content word mistakes (single word only) = 1199
 
 single_word_errors %>%
-  distinct() %>%
   count(language, sort = TRUE)
 
 single_word_errors
