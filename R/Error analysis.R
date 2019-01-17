@@ -32,6 +32,9 @@ single_word_errors %>%
 single_word_errors %>%
   count(language, sort = TRUE)
 
+single_word_errors %>%
+  write_csv("data/single_word_errors.csv")
+
 hunspell_corrected <- single_word_errors %>%
   mutate(
     hunspell_check = hunspell::hunspell_check(i)
@@ -43,4 +46,10 @@ hunspell_corrected <- single_word_errors %>%
 
 write_csv(hunspell_corrected, "data/hunspell_corrected.csv")
 
-  
+single_word_errors %>%
+  mutate(
+    hunspell_check = hunspell::hunspell_check(i)
+  ) %>%
+  filter(hunspell_check != F) %>%
+  select(-hunspell_check) %>%
+  write_csv("data/no_spell_errors.csv")
