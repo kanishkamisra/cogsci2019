@@ -35,3 +35,12 @@ translated %>%
     l1 = language, type, i, c, id, l1_i = translatedText, l1_c = translatedText1
   ) %>%
   write_csv("data/translated_no_spell_errors.csv")
+
+translations %>%
+  mutate(
+    i_space = map_dbl(l1_i, str_count, pattern = " "),
+    c_space = map_dbl(l1_c, str_count, pattern = " ")
+  ) %>%
+  filter(c_space == 0, i_space == 0) %>%
+  select(-i_space, -c_space) %>%
+  write_csv("data/translated_no_space.csv")
