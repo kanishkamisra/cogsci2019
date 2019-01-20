@@ -2,7 +2,17 @@ library(tidyverse)
 library(wordVectors)
 library(tictoc)
 
-translations <- read_csv("data/translated_no_spell_errors.csv")
+# translations <- read_csv("data/translated_no_spell_errors.csv")
+translations <- read_csv("data/ms_translated_all.csv") %>%
+  mutate(
+    i_space = map_dbl(l1_i, str_count, pattern = " "),
+    c_space = map_dbl(l1_c, str_count, pattern = " ")
+  ) %>%
+  filter(c_space == 0, i_space == 0) %>%
+  select(-i_space, -c_space)
+
+translations %>%
+  filter(language == "Chinese")
 
 ## functions
 
@@ -30,8 +40,24 @@ semantic_overlap <- function(word1, word2, n = 10, vector_space) {
 }
 
 tic()
-swedish_vectors <- read.vectors("data/pretrained_embeddings/cc.sv.vec", binary = F)
+chinese_vectors <- read.vectors("data/pretrained_embeddings/cc.zh.vec", binary = F)
+simplified_chinese_vectors <- read.vectors("data/pretrained_embeddings/wiki.zh_classical.vec", binary = F)
 toc()
+
+chinese_words <- unique(c(
+  translations %>%
+    filter(language == "Chinese") %>%
+    pull(l1_i),
+  translations %>%
+    filter(language == "Chinese") %>%
+    pull(l1_c)
+))
+
+simplified_chinese_vectors[chinese_words, ]
+
+chinese_words %in% rownames(chinese_vectors)
+
+chinese_words %in% rownames(simplified_chinese_vectors)
 
 ## experiments
 translations %>%
