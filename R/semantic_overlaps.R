@@ -1,13 +1,16 @@
 library(tidyverse)
 library(wordVectors)
 library(tictoc)
-library(furrr)
-
-plan(multicore(workers = 3L))
-options(future.globals.maxSize = 10522669875)
+# library(furrr)
+# 
+# plan(multicore(workers = 3L))
+# options(future.globals.maxSize = 10522669875)
 # plan(sequential)
 
-options(scien = 99)
+options(scipen = 99)
+
+experiments <- read_csv("data/ms_final_experiments.csv")
+
 
 translations <- read_csv("data/final_translations.csv") %>%
   mutate(c = str_to_lower(c), i = str_to_lower(i)) %>%
@@ -122,3 +125,41 @@ toc()
 
 english_overlaps <- read_csv("data/english_overlaps.csv")
 english_overlaps
+
+
+english_overlap_experiment <- read_csv("data/ms_final_exnglish_experiments.csv") %>%
+  select(-c, -i, -l1_c, -l1_i) %>%
+  gather(l2_sim_cc_10:l2_sim_cc_100, key = "neighbors", value = "overlap") %>%
+  mutate(neighbors = as.numeric(str_extract(neighbors, "(?<=cc_).+$*"))) 
+
+
+english_overlap_experiment %>% write_csv("data/english_overlap_experiment.csv")
+
+english_overlap_experiment %>%
+  ggplot(aes(overlap, color = as.factor(neighbors), group = neighbors)) +
+  geom_density() +
+  facet_wrap(~language) +
+  theme_light() +
+  theme(
+    legend.position = "top"
+  ) +
+  labs(
+    color = "Number of Nearest Neighbors"
+  )
+
+english_overlap_experiment %>%
+  group_by(language, neighbors) %>%
+  summarize(
+    overlap = mean(overlap)
+  ) %>%
+  ggplot(aes(as.factor(neighbors), overlap, group = 1)) +
+  geom_point() +
+  geom_line() +
+  facet_wrap(~language) +
+  scale_y_continuous(limits = c(0, 0.4)) +
+  theme_light(base_family = "CMU Serif") +
+  labs(
+    x = "Nearest Neighbors in Vector Space"
+  )
+
+korean <- read.vectors("data/pretrained_embeddings/cc.ko.vec", binary = F)
