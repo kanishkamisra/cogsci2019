@@ -29,15 +29,31 @@ cases <- overlaps %>%
 
 # Dataset
 
-We use the Cambridge Learner Corpus - First Certification in English (CLC - FCE) corpus by Yannakoudakis et al (2011). The CLC-FCE corpus has 
+We use the Cambridge Learner Corpus - First Certification in English (CLC - FCE) corpus by Yannakoudakis et al (2011). The CLC-FCE corpus has 1244 short essays responses written by learners of English with 16 different first languages (L1). The corpus is annotated for errors and each error is represented based on the guidelines as stated in Nicholls (2003). There are
+ a total of 55895 errors in the corpus.
+
+For the purposes of measuring semantic errors, we take into account the errors involving content word corrections (n = 6837). Out of the content word based corrections, we only consider errors involving single word error corrections, reducing the total number to 5521.
+
 
 # Experiments
 
 The goal of this paper is to compare two hypotheses:
 
+1. Do Vector Semantic models reflect L1 influence in learner english (L2) errors. 
+2. Whether L1's influence on Learner Errors for typologically related languages is expressed by vector semantic models.
+
 ## Translations
 
-For each of the *(incorrect, correct)* pairs, we translate it into the person's L1 language using the Microsoft Azure Text translation API ^[https://docs.microsoft.com/en-us/azure/cognitive-services/Translator/reference/v3-0-reference]. We use this API because unlike Google's Cloud API for translations, it provides us with alternate pronunciations which prove beneficial while querying for words that can be expressed with different parts of speech.
+For each of the *(incorrect, correct)* pairs, we translate it into the person's L1 language using the Microsoft Azure Text translation API ^[https://docs.microsoft.com/en-us/azure/cognitive-services/Translator/reference/v3-0-reference]. We use this API because unlike Google's Cloud API for translations, it provides us with alternate pronunciations which prove beneficial while querying for words that can be expressed with different parts of speech. We then remove all multi-word translations of the errors pairs, ending up with 4937 error pairs. Table 1 shows the number of error-cases for each language
+
+```{r}
+translated <- read_csv("../data/english_overlaps.csv")
+
+translated %>%
+  count(language, sort = T) %>%
+  knitr::kable()
+```
+
 
 ### Hypothesis 1 (H~1~): Do Vector Semantic models reflect L1 influence in learner english (L2) errors 
 
@@ -91,6 +107,7 @@ ggsave("../figures/nearest_neighbor_overlap3.png", avg_overlaps, height = 6, wid
 ```
 
 \begin{figure}[h]
+  \caption {Overlaps for L1 (Red) and L2 (Green) with different Nearest Neighbors, for each language}
   \centering
     \includegraphics[width=1\textwidth]{../figures/nearest_neighbor_overlap3.png}
 \end{figure}
@@ -140,6 +157,7 @@ results1 <- experiment1 %>%
 results1 %>%
   select(-data) %>%
   unnest() %>%
+  arrange(-estimate) %>%
   knitr::kable()
 ```
 
@@ -161,11 +179,14 @@ ggsave("../figures/bootstrap_cis.png", bootstrap_cis, height = 5, width = 6)
 ```
 
 \begin{figure}[h]
+  \caption{Spearman's Correlation bootstrap estimates}
   \centering
     \includegraphics[width=1\textwidth]{../figures/bootstrap_cis.png}
 \end{figure}
 
 We see that the Spearman's $\rho$ between the various L1s, is in the moderate range (0.4 - 0.59), and is significant, as inferred from the bootstrapped confidence intervals as well as the p-values. Some L1s like *Thai* and *Korean* lie in the weak range, indicating that the L1 semantic influence in lexical choice isn't as pronounced in the errors produced in english.
+
+\newpage
 
 ### Hypothesis 2 (H~2~): Whether L1's influence on Learner Errors for typologically related languages is expressed by vector semantic models
 
@@ -202,6 +223,7 @@ experiment2 <- experiment1 %>%
 experiment2 %>%
   select(-data) %>%
   rename(Family = "group") %>%
+  arrange(divergence) %>%
   knitr::kable()
 ```
 
