@@ -11,7 +11,7 @@ library(tidyverse)
 library(wordVectors)
 
 errors <- read_csv("../data/experiment_final.csv")
-english_vectors <- read.vectors("../../pretrained_vectors/fasttext/wiki-news-300d-1M-subword.vec", binary = F)
+english_vectors <- read.vectors("../data/pretrained_embeddings/cc.en.300.vec", binary = F)
 russian_vectors <- read.vectors("../data/pretrained_embeddings/cc.ru.vec", binary = F)
 
 ```
@@ -57,6 +57,10 @@ semantic_overlap <- function(word1, word2, n = 10, vector_space) {
   
   return(overlap)
 }
+
+example %>% select(c, i, l1_i, l1_c) %>%
+  gather(key = "type", value = "word") %>%
+  mutate(neighbors = map(word, closest))
 ```
 
 
