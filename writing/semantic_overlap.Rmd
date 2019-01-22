@@ -1,0 +1,28 @@
+---
+title: "Semantic Overlap Computation"
+author: "Kanishka Misra, Hemanth Devarapalli"
+date: "1/22/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(tidyverse)
+library(wordVectors)
+
+english_vectors <- read.vectors("../data/pre")
+```
+
+## Learner Errors in English
+
+In this example, we consider an error annotated corpus of 1244 short essays, each written by a unique learner of english belonging to one of 16 different first languages (L1).
+
+Since we are covering semantic errors, we extract the errors made in content words (adjectives (J), nouns (N), verbs (V) and adverbs (Y)).
+
+Let's look at an example by a learner whose L1 is Russian:
+
+Incorrect word in English: ```r ``` Replacement as annotated: ```r ```
+
+Translated form: ```r ``` Translated replacement: ```r ```
+
+
