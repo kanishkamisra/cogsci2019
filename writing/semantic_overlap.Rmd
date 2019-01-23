@@ -58,9 +58,44 @@ semantic_overlap <- function(word1, word2, n = 10, vector_space) {
   return(overlap)
 }
 
-example %>% select(c, i, l1_i, l1_c) %>%
-  gather(key = "type", value = "word") %>%
-  mutate(neighbors = map(word, closest))
+english_vectors <- read.vectors("../../pretrained_vectors/fasttext/wiki-news-300d-1M-subword.vec", binary = F)
+
+fasttex_wiki_eng <- tibble(
+  word = c(eng_correct, eng_incorrect),
+  type = c("c", "i")
+) %>%
+  mutate(nearest = map(word, closest_words, vector_space = english_vectors))
+
+fasttex_wiki_eng %>% select(-type) %>% spread(word, nearest) %>% unnest() %>% write_csv("../data/examples/fasttext_wiki_eng.csv")
+
+fasttex_cc_eng <- tibble(
+  word = c(eng_correct, eng_incorrect),
+  type = c("c", "i")
+) %>%
+  mutate(nearest = map(word, closest_words, vector_space = english_vectors))
+
+fasttex_cc_eng %>% select(-type) %>% spread(word, nearest) %>% unnest() %>% write_csv("../data/examples/fasttext_cc_eng.csv")
+
+rm(english_vectors)
+english_vectors <- read.vectors("../../pretrained_vectors/GoogleNews-vectors-negative300.bin")
+
+word2vec_cc_eng <- tibble(
+  word = c(eng_correct, eng_incorrect),
+  type = c("c", "i")
+) %>%
+  mutate(nearest = map(word, closest_words, vector_space = english_vectors))
+
+word2vec_cc_eng %>% select(-type) %>% spread(word, nearest) %>% unnest() %>% write_csv("../data/examples/word2vec_cc_eng.csv")
+
+rm(english_vectors)
+
+russian_cc <- tibble(
+  word = c(ru_correct, ru_incorrect),
+  type = c("c", "i")
+) %>%
+  mutate(nearest = map(word, closest_words, vector_space = russian_vectors))
+
+russian_cc %>% select(-type) %>% spread(word, nearest) %>% unnest() %>% write_csv("../data/examples/fasttext_cc_ru.csv")
 ```
 
 
