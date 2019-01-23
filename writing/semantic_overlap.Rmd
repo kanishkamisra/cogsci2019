@@ -2,117 +2,117 @@
 title: "Semantic Overlap Computation"
 author: "Kanishka Misra, Hemanth Devarapalli"
 date: "1/22/2019"
-output: pdf_document
+output: 
+  pdf_document:
+    latex_engine: xelatex
+    includes:
+      in_header: example_preamble.tex
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+options(Encoding="UTF-8")
 library(tidyverse)
-library(wordVectors)
+library(knitr)
 
 errors <- read_csv("../data/experiment_final.csv")
-english_vectors <- read.vectors("../data/pretrained_embeddings/cc.en.300.vec", binary = F)
-russian_vectors <- read.vectors("../data/pretrained_embeddings/cc.ru.vec", binary = F)
+example <- errors %>% filter(c == "acquiring", i == "getting")
+fasttext_cc_eng <- read_csv("../data/examples/fasttext_cc_eng.csv")
+fasttext_wiki_eng <- read_csv("../data/examples/fasttext_wiki_eng.csv")
+word2vec_eng <- read_csv("../data/examples/word2vec_cc_eng.csv")
+fasttext_cc_ru <- read_csv("../data/examples/fasttext_cc_ru.csv")
 
+answers <- read_csv("../data/answers_parsed.csv") %>%
+  mutate(
+    person_id = paste("person", str_extract(file_name, "(?<=doc)(.*)(?=\\.xml)"), sep = "_")
+  )
 ```
 
-## Learner Errors in English
+# Learner Errors in English
 
 In this example, we consider an error annotated corpus of 1244 short essays, each written by a unique learner of english belonging to one of 16 different first languages (L1).
 
 Since we are covering semantic errors, we extract the errors made in content words (adjectives (J), nouns (N), verbs (V) and adverbs (Y)).
 
 ```{r}
-example <- errors %>% filter(c == "acquiring", i == "getting")
 
-eng_incorrect <- example$i
-eng_correct <- example$c
-ru_incorrect <- example$l1_i
-ru_correct <- example$l1_c
-
-closest_words <- function(word, vector_space, n = 10) {
-  vectors <- vector_space[word, ]
-  closest <- closest_to(vector_space, vectors, n = n + 1) %>%
-    slice(-1)
-  return(closest$word)
-}
-
-cosine_similarity <- function(word1, word2, vector_space = glove_vectors) {
-  sim <- cosineSimilarity(vector_space[word1, ], vector_space[word2, ])
-  return(as.double(sim))
-}
-
-semantic_overlap <- function(word1, word2, n = 10, vector_space) {
-  cat(paste0("word1: ", word1, ", word2: ", word2), sep = "\n")
-  word1_neighbors = closest_words(word1, n = n, vector_space = vector_space)
-  word2_neighbors = closest_words(word2, n = n, vector_space = vector_space)
-  
-  neighbor1_vectors <- vector_space[word1_neighbors, ]
-  neighbor2_vectors <- vector_space[word2_neighbors, ]
-  
-  overlap1 = mean(cosineSimilarity(neighbor1_vectors, vector_space[word2, ]))
-  overlap2 = mean(cosineSimilarity(neighbor2_vectors, vector_space[word1, ]))
-  
-  overlap = mean(c(overlap1, overlap2))
-  
-  return(overlap)
-}
-
-english_vectors <- read.vectors("../../pretrained_vectors/fasttext/wiki-news-300d-1M-subword.vec", binary = F)
-
-fasttex_wiki_eng <- tibble(
-  word = c(eng_correct, eng_incorrect),
-  type = c("c", "i")
-) %>%
-  mutate(nearest = map(word, closest_words, vector_space = english_vectors))
-
-fasttex_wiki_eng %>% select(-type) %>% spread(word, nearest) %>% unnest() %>% write_csv("../data/examples/fasttext_wiki_eng.csv")
-
-fasttex_cc_eng <- tibble(
-  word = c(eng_correct, eng_incorrect),
-  type = c("c", "i")
-) %>%
-  mutate(nearest = map(word, closest_words, vector_space = english_vectors))
-
-fasttex_cc_eng %>% select(-type) %>% spread(word, nearest) %>% unnest() %>% write_csv("../data/examples/fasttext_cc_eng.csv")
-
-rm(english_vectors)
-english_vectors <- read.vectors("../../pretrained_vectors/GoogleNews-vectors-negative300.bin")
-
-word2vec_cc_eng <- tibble(
-  word = c(eng_correct, eng_incorrect),
-  type = c("c", "i")
-) %>%
-  mutate(nearest = map(word, closest_words, vector_space = english_vectors))
-
-word2vec_cc_eng %>% select(-type) %>% spread(word, nearest) %>% unnest() %>% write_csv("../data/examples/word2vec_cc_eng.csv")
-
-rm(english_vectors)
-
-russian_cc <- tibble(
-  word = c(ru_correct, ru_incorrect),
-  type = c("c", "i")
-) %>%
-  mutate(nearest = map(word, closest_words, vector_space = russian_vectors))
-
-russian_cc %>% select(-type) %>% spread(word, nearest) %>% unnest() %>% write_csv("../data/examples/fasttext_cc_ru.csv")
 ```
 
 
 Let's look at an example by a learner whose L1 is Russian:
 
-```{r}
+While this example contains many other errors, we only focus on one for this analysis. The error word is in **bold**.
 
+## Original Answer:
+
+```{r results='asis'}
+incorrect <- answers %>%
+  filter(person_id == example$id) %>%
+  pull(i) %>%
+  .[1]
+
+inc <- incorrect %>% str_split("getting", simplify = T)
+
+cat("*", inc[, 1], " **getting** ", inc[, 2],"*", sep = "")
 ```
 
-Incorrect word in English: `acquiring` Replacement as annotated: `getting`
+## Correct Answer:
 
-```{r}
+```{r results = 'asis'}
+correct <- answers %>%
+  filter(person_id == example$id) %>%
+  pull(c) %>%
+  .[1]
 
+inc <- correct %>% str_split("acquiring", simplify = T)
+
+cat("*", inc[, 1], " **acquiring** ", inc[, 2],"*", sep = "")
 ```
 
-Translated form: `приобретения` Translated replacement: `получение`
+## Analysis 
 
+From the above short essay responses, we get the incorrec and replacement annotations
 
+Incorrect word in English: **getting** Replacement as annotated: **acquiring**
 
+We then take this (incorrect, correct) word pair and translate it into the person's L1 language using the Microsoft Azure Text translation API ^[https://docs.microsoft.com/en-us/azure/cognitive-services/Translator/reference/v3-0-reference]. We use this API because unlike Google's Cloud API for translations, it provides us with alternate pronunciations which prove beneficial while querying for words that can be expressed with different parts of speech.
 
+Translated form: **получение** Translated replacement: **приобретения** 
+
+## Semantic Overlap
+
+We then use the fasttext english and russian word vectors (300 dimensions) to calculate the 10 nearest neighbors for the *(incorrect, correct)* pair in their respective language vector spaces. 
+
+The 10 nearest neighbors for each of these words are shown in table 1.
+
+```{r}
+bind_cols(fasttext_cc_eng %>% select(getting, acquiring), fasttext_cc_ru %>% select(получение, приобретения)) %>%
+  knitr::kable(caption = "10 nearest neighbors of the words in the given example.", format = "latex", booktabs = T) %>%
+  kableExtra::row_spec(0, bold = T) %>%
+  kableExtra::kable_styling(latex_options = "hold_position") %>%
+  kableExtra::add_header_above(c("English" = 2, "Russian" = 2))
+```
+
+To compute the semantic overlap between **i** and **c** in a given language, we take each word and compute its partial overlap to the other word. The partial overlap of a word *x* with word *y* is computed as:
+
+\[
+  PO(x, y) = \frac{1}{k} \sum_{y' \in NN_k(y)} cos(x, y')
+\]
+
+Where $k$ is the number of nearest neighbors, here 10 and $NN_k(y)$ is the nearest neighbor function to print the k nearest neighbors of the word $y$ based on cosine similarity. Thus, we get the partial overlap of **i** with **c** and **c** with **i**. We then compute the Semantic Error Overlap, $SEO$ by taking the mean of the two partial overlaps $PO(i, c)$ and $PO(c, i)$.
+
+Based on the example:
+
+For **getting** and **acquiring**,  
+
+We compute $PO(getting, acquiring)$ and $PO(acquiring, getting)$ as: 
+
+`getting with [Acquiring, reacquiring, obtaining, acquire, re-acquiring, acquired, procuring, acquring, acquisition, owning] = 0.32476866`
+
+and 
+
+`acquiring with [gettting, gettng, geting, get, gettign, gettiing, gettig, got, getitng, gotten] = 0.27844474`
+
+Taking the average, we have: $SEO(getting, acquiring)$ ~ 0.302
+
+Similarly, we compute $PO$*(получение, приобретения)* = 0.41347638 and $PO$*(приобретения, получение)* = 0.41594142 to get $SEO$*(получение, приобретения)* ~ 0.415
