@@ -1,0 +1,268 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Semantic Overlap Computation},
+            pdfauthor={Kanishka Misra, Hemanth Devarapalli},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Semantic Overlap Computation}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Kanishka Misra, Hemanth Devarapalli}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{1/22/2019}
+
+\usepackage[utf8]{inputenc}
+\usepackage{fontspec}
+
+\setmainfont[
+  Ligatures=TeX,
+  Extension=.otf,
+  BoldFont=cmunbx,
+  ItalicFont=cmunti,
+  BoldItalicFont=cmunbi,
+]{cmunrm}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+\setotherlanguage{russian}
+
+\newcommand{\RU}[1]{\foreignlanguage{russian}{#1}}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+
+\begin{document}
+\maketitle
+
+\hypertarget{learner-errors-in-english}{%
+\section{Learner Errors in English}\label{learner-errors-in-english}}
+
+In this example, we consider an error annotated corpus of 1244 short
+essays, each written by a unique learner of english belonging to one of
+16 different first languages (L1).
+
+Since we are covering semantic errors, we extract the errors made in
+content words (adjectives (J), nouns (N), verbs (V) and adverbs (Y)).
+
+Let's look at an example by a learner whose L1 is Russian:
+
+While this example contains many other errors, we only focus on one for
+this analysis. The error word is in \textbf{bold}.
+
+\hypertarget{original-answer}{%
+\subsection{Original Answer:}\label{original-answer}}
+
+\emph{Dear Jane Clark, I am writing to you to give some opinions of mine
+abut The International Arts Festival. It was a great idea and I had the
+pleasure of resting and relaxing, plus of \textbf{getting} some
+important knowledge from it. On the other hand there were some
+disadvantages: 1. Stars and artists wee only from six countries 2. Some
+concert halls were too small. So it was impossible to get tickets there.
+3. I think that there were not enough plays and films. To sum up I want
+to tell you bout my suggestions for next year's festival. It would be
+wonderful to buy some books or programms with signatures of all the
+stars and artists taking part in the festival. Also I think that dance
+shows should include different styles of dancing (e.g.~national dancing
+of all the countries) to impress audience and not to bore with the
+similar scenes . I hope this letter will help you in organying Yours
+faithfully}
+
+\hypertarget{correct-answer}{%
+\subsection{Correct Answer:}\label{correct-answer}}
+
+\emph{Dear Jane Clark, I am writing to you to give you some opinions of
+mine about The International Arts Festival. It was a great idea and I
+had the pleasure of resting and relaxing, plus of \textbf{acquiring}
+some important knowledge from it. On the other hand there were some
+disadvantages: 1. The stars and artists were from only six countries .
+2. Some concert halls were too small. So it was impossible to get
+tickets there. 3. I don't think that there were enough plays and films.
+To sum up I want to tell you about my suggestions for next year's
+festival. It would be wonderful to buy some books or programmes with the
+signatures of all the stars and artists taking part in the festival.
+Also I think that the dance shows should include different styles of
+dancing (e.g.~the national dance of all the countries) to impress the
+audience and not to bore with the similar scenes . I hope this letter
+will help you with organizing the festival . Yours sincerely}
+
+\hypertarget{analysis}{%
+\subsection{Analysis}\label{analysis}}
+
+From the above short essay responses, we get the incorrec and
+replacement annotations
+
+Incorrect word in English: \textbf{getting} Replacement as annotated:
+\textbf{acquiring}
+
+We then take this (incorrect, correct) word pair and translate it into
+the person's L1 language using the Microsoft Azure Text translation API
+\footnote{\url{https://docs.microsoft.com/en-us/azure/cognitive-services/Translator/reference/v3-0-reference}}.
+We use this API because unlike Google's Cloud API for translations, it
+provides us with alternate pronunciations which prove beneficial while
+querying for words that can be expressed with different parts of speech.
+
+Translated form: \textbf{получение} Translated replacement:
+\textbf{приобретения}
+
+\hypertarget{semantic-overlap}{%
+\subsection{Semantic Overlap}\label{semantic-overlap}}
+
+We then use the fasttext english and russian word vectors (300
+dimensions) to calculate the 10 nearest neighbors for the
+\emph{(incorrect, correct)} pair in their respective language vector
+spaces.
+
+The 10 nearest neighbors for each of these words are shown in table 1.
+
+\begin{table}[!h]
+
+\caption{\label{tab:unnamed-chunk-4}10 nearest neighbors of the words in the given example.}
+\centering
+\begin{tabular}[t]{llll}
+\toprule
+\multicolumn{2}{c}{English} & \multicolumn{2}{c}{Russian} \\
+\cmidrule(l{2pt}r{2pt}){1-2} \cmidrule(l{2pt}r{2pt}){3-4}
+\textbf{getting} & \textbf{acquiring} & \textbf{получение} & \textbf{приобретения}\\
+\midrule
+gettting & Acquiring & Получение & покупки\\
+gettng & reacquiring & предоставление & приобритения\\
+geting & obtaining & -получение & продажи\\
+get & acquire & приобретение & получения\\
+gettign & re-acquiring & неполучение & приобретении\\
+\addlinespace
+gettiing & acquired & получения & приобретение\\
+gettig & procuring & лучение & перепродажи\\
+got & acquring & наполучение & преобретения\\
+getitng & acquisition & получении & приобретению\\
+gotten & owning & пοлучение & использования\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+To compute the semantic overlap between \textbf{i} and \textbf{c} in a
+given language, we take each word and compute its partial overlap to the
+other word. The partial overlap of a word \emph{x} with word \emph{y} is
+computed as:
+
+\[
+  PO(x, y) = \frac{1}{k} \sum_{y' \in NN_k(y)} cos(x, y')
+\]
+
+Where \(k\) is the number of nearest neighbors, here 10 and \(NN_k(y)\)
+is the nearest neighbor function to print the k nearest neighbors of the
+word \(y\) based on cosine similarity. Thus, we get the partial overlap
+of \textbf{i} with \textbf{c} and \textbf{c} with \textbf{i}. We then
+compute the Semantic Error Overlap, \(SEO\) by taking the mean of the
+two partial overlaps \(PO(i, c)\) and \(PO(c, i)\).
+
+\begin{figure}[h]
+  \caption {Semantic Overlap between incorrect and correct words for a language}
+  \centering
+    \includegraphics[width=1\textwidth]{../figures/semantic_neighborhood.png}
+\end{figure}
+
+Based on the example:
+
+For \textbf{getting} and \textbf{acquiring},
+
+We compute \(PO(getting, acquiring)\) and \(PO(acquiring, getting)\) as:
+
+\texttt{getting\ with\ {[}Acquiring,\ reacquiring,\ obtaining,\ acquire,\ re-acquiring,\ acquired,\ procuring,\ acquring,\ acquisition,\ owning{]}\ =\ 0.32476866}
+
+and
+
+\texttt{acquiring\ with\ {[}gettting,\ gettng,\ geting,\ get,\ gettign,\ gettiing,\ gettig,\ got,\ getitng,\ gotten{]}\ =\ 0.27844474}
+
+Taking the average, we have: \(SEO(getting, acquiring)\)
+\textasciitilde{} 0.302
+
+Similarly, we compute \(PO\)\emph{(получение, приобретения)} =
+0.41347638 and \(PO\)\emph{(приобретения, получение)} = 0.41594142 to
+get \(SEO\)\emph{(получение, приобретения)} \textasciitilde{} 0.415
+
+
+\end{document}

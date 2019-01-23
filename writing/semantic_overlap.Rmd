@@ -101,6 +101,12 @@ To compute the semantic overlap between **i** and **c** in a given language, we 
 
 Where $k$ is the number of nearest neighbors, here 10 and $NN_k(y)$ is the nearest neighbor function to print the k nearest neighbors of the word $y$ based on cosine similarity. Thus, we get the partial overlap of **i** with **c** and **c** with **i**. We then compute the Semantic Error Overlap, $SEO$ by taking the mean of the two partial overlaps $PO(i, c)$ and $PO(c, i)$.
 
+\begin{figure}[h]
+  \caption {Semantic Overlap between incorrect and correct words for a language}
+  \centering
+    \includegraphics[width=1\textwidth]{../figures/semantic_neighborhood.png}
+\end{figure}
+
 Based on the example:
 
 For **getting** and **acquiring**,  
