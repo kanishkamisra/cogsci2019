@@ -189,6 +189,8 @@ tidy_overlaps %>%
 
 ## Overlaps Between
 
+tidy_overlaps <- read_csv("data/tidy_overlaps.csv")
+
 tidy_overlaps %>%
   filter(language != "Dutch") %>%
   gather(l1, l2, key = "metric", value = "overlap") %>%
@@ -254,5 +256,4 @@ results_experiment1 %>%
   )
 
 ggsave("figures/fasttext vs polyglot correlations.png")
-
 
