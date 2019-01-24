@@ -1,0 +1,16 @@
+\usepackage[utf8]{inputenc}
+\usepackage{fontspec}
+
+\setmainfont[
+  Ligatures=TeX,
+  Extension=.otf,
+  BoldFont=cmunbx,
+  ItalicFont=cmunti,
+  BoldItalicFont=cmunbi,
+]{cmunrm}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+\setotherlanguage{russian}
+
+\newcommand{\RU}[1]{\foreignlanguage{russian}{#1}}
