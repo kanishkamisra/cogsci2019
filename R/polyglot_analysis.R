@@ -11,9 +11,12 @@ error_cases <- read_csv("data/experiment_final.csv") %>%
 fasttext_experiment <- read_csv("data/ms_final_experiments.csv") %>%
   mutate(case_id = paste0("case_", str_pad(row_number(), width = 4, pad = "0")))
 
+write_csv(fasttext_experiment, "data/fasttext_experiments.csv")
+
 polyglot_experiment <- read_csv("data/polyglot_experiment_final.csv") %>%
   inner_join(fasttext_experiment %>% distinct(case_id, c, i, id, l1_c, l1_i, language)) %>%
   distinct()
+
   
 
 # polyglot_experiment %>%
