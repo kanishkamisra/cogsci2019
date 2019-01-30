@@ -1,0 +1,326 @@
+% 
+% Annual Cognitive Science Conference
+% Sample LaTeX Paper -- Proceedings Format
+% 
+
+% Original : Ashwin Ram (ashwin@cc.gatech.edu)       04/01/1994
+% Modified : Johanna Moore (jmoore@cs.pitt.edu)      03/17/1995
+% Modified : David Noelle (noelle@ucsd.edu)          03/15/1996
+% Modified : Pat Langley (langley@cs.stanford.edu)   01/26/1997
+% Latex2e corrections by Ramin Charles Nakisa        01/28/1997 
+% Modified : Tina Eliassi-Rad (eliassi@cs.wisc.edu)  01/31/1998
+% Modified : Trisha Yannuzzi (trisha@ircs.upenn.edu) 12/28/1999 (in process)
+% Modified : Mary Ellen Foster (M.E.Foster@ed.ac.uk) 12/11/2000
+% Modified : Ken Forbus                              01/23/2004
+% Modified : Eli M. Silk (esilk@pitt.edu)            05/24/2005
+% Modified : Niels Taatgen (taatgen@cmu.edu)         10/24/2006
+% Modified : David Noelle (dnoelle@ucmerced.edu)     11/19/2014
+% Modified : Roger Levy (rplevy@mit.edu)     12/31/2018
+
+
+
+%% Change "letterpaper" in the following line to "a4paper" if you must.
+
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage{cogsci}
+
+%\cogscifinalcopy % Uncomment this line for the final submission 
+
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{pslatex}
+\usepackage{apacite}
+\usepackage{graphicx}
+\usepackage[bottom]{footmisc}
+\usepackage{tablefootnote}
+% \setlength{\parskip}{1pt plus 1pt minus 0.5pt}
+
+\usepackage{float} % Roger Levy added this and changed figure/table
+                   % placement to [H] for conformity to Word template,
+                   % though floating tables and figures to top is
+                   % still generally recommended!
+
+%\usepackage[none]{hyphenat} % Sometimes it can be useful to turn off
+%hyphenation for purposes such as spell checking of the resulting
+%PDF.  Uncomment this block to turn off hyphenation.
+
+
+%\setlength\titlebox{4.5cm}
+% You can expand the titlebox if you need extra space
+% to show all the authors. Please do not make the titlebox
+% smaller than 4.5cm (the original size).
+%%If you do, we reserve the right to require you to change it back in
+%%the camera-ready version, which could interfere with the timely
+%%appearance of your paper in the Proceedings.
+
+
+
+\title{Semantic Errors in Learner English: Insights from Distributed Vector Representations of error words in L1 and L2}
+ 
+\author{{\large \bf Kanishka Misra (kmisra@purdue.edu)} \\
+  Purdue University \\
+  West Lafayette, IN 47906 USA
+  \AND {\large \bf Hemanth Devarapalli (hdevarap@purdue.edu)} \\
+  Purdue University \\
+  West Lafayette, IN 47906 USA
+  \AND{\large \bf Julia Taylor Rayz (jtaylor1@purdue.edu)} \\
+  Purdue University \\
+  West Lafayette, IN 47906 USA}
+
+
+\begin{document}
+
+\maketitle
+
+
+\begin{abstract}
+Include no author information in the initial submission, to facilitate
+blind review.  The abstract should be one paragraph, indented 1/8~inch on both sides,
+in 9~point font with single spacing. The heading ``{\bf Abstract}''
+should be 10~point, bold, centered, with one line of space below
+it. This one-paragraph abstract section is required only for standard
+six page proceedings papers. Following the abstract should be a blank
+line, followed by the header ``{\bf Keywords:}'' and a list of
+descriptive keywords separated by semicolons, all in 9~point font, as
+shown below.
+
+\textbf{Keywords:} 
+add your choice of indexing terms or keywords; kindly use a
+semicolon; between each term
+\end{abstract}
+
+
+\section{Introduction}
+
+While writing in English, \textit{French} speakers often use \textit{scene} in place of \textit{stage}, while \textit{Catalan} speakers often use the word \textit{something} instead of \textit{something else}. Can these choice of words be attributed to the person's native language?
+
+Patterns of lexical choice in content produced by non-native speakers have been widely studied by Second Language Acquisition (SLA) and Natural Language Processing (NLP) researchers. It has been shown that a person's L1 influences their L2 acquisition in various ways \shortcite{de2000hard, hopmanPredictorsL2Word}. Within SLA, researchers have focused on analyzing L2 acquisition in terms of translation and semantic similarity and their impact on L2 acquisition, using behavioral studies \shortcite{degani2010ambiguous, bracken2017translation, zhang2018semantic} as well as corpus analysis \shortcite{gilquin2011efl}. In the case of NLP, research has studied the lexical choice made in L2 as an error detection or a error correction problem \shortcite{ng2014conll}. The error detection and correction literature has focused on handling of function words due to their frequency of being erred in grammatical mistakes \shortcite{Rozovskaya:2010:GCS:1870658.1870752, Rozovskaya:2011:ASM:2002472.2002589}, or word collocations in learner corpora \shortcite{chang2008automatic, futagi2008computational, dahlmeier2011correcting}. 
+
+More recently, semantic errors in learner corpora have been studied in the form of combinations of content words. Content word combinations and collocations have been shown to be challenging to learn \todo{cite} for L2 learners. The L1 effects on L2 semantic knowledge were analyzed using three types of content word combinations (Adjective-Noun, Verb-Direct Object, and Subject-Verb) in \cite{kochmarCrossLingualLexicoSemanticTransfer2016, kochmarModellingSemanticAcquisition2017}. By comparing the frequency distributions of words in non-native and native english corpora, \citeA{kochmarModellingSemanticAcquisition2017} found that for typologically distant L1s, the lexical distribution was closer to that of native english compared to typologically closer L1s. In terms of L1 influence, \citeA{kochmarCrossLingualLexicoSemanticTransfer2016} experimentally showed that semantic models derived from a person's L1 helps improve error detection in content word combinations, following the results confirmed in previous research \shortcite{chang2008automatic, Rozovskaya:2010:GCS:1870658.1870752, Rozovskaya:2011:ASM:2002472.2002589}. Additionally, in the case of language typology, \shortciteA{kochmarCrossLingualLexicoSemanticTransfer2016} found semantic models learned from typologically related L1s to be portable in the detection of learner english errors.
+
+%  The lexico-semantic model of a person's first language (L1) has a significant impact in the process of lexical choice in the person's L2 \cite{dahlmeier2011correcting, kochmarCrossLingualLexicoSemanticTransfer2016} and this process is termed as L1 interference \todo{example}. Moreover, typologically related languages have been shown to exhibit similar properties in terms of their L1 interference on the person's L2 writing \cite{kochmarCrossLingualLexicoSemanticTransfer2016} \todo{example}.
+
+Recent research within NLP has seen the emergence of neural network based models of distributed word representations, also called word embeddings. Neural Word embeddings were first introduced by Bengio et al. (2003) and have become an integral part of NLP \shortcite{bojanowskiEnrichingWordVectors2016}. These word representations have found to capture semantic information about words by assigning each vector to a given word, such that words with similar contexts have similar vectors. Studies focusing on the intrinsic evaluation of word embedding models by comparing them to human judgment on similarity and relatedness between words, have shown competent performance of word vectors in terms of correlation with human judgment \shortcite{rubenstein1965contextual, finkelstein2002placing, bruni2012distributional, hill2015simlex}. Word embeddings also exhibit the capability to solve verbal analogy problems, such as \texttt{king - man + woman = queen} and have garnered the attention of Cognitive Science. A recent study analyzed two popular word embedding models, GloVe and word2vec as accounts of analogy to evaluate their performance in a relational similarity task \shortcite{chen2017evaluating} and showed that the models capture certain forms of similarities more than others. Word embeddings were also used to analyze the predictors of L2 word learning accuracy \shortcite{hopmanPredictorsL2Word}. In case of using NLP methods in Second Language Acquisition, vector representations of words have been successful in improving error detection on learner corpus of essays \shortcite{kochmarCrossLingualLexicoSemanticTransfer2016}.
+
+Based on prior research, there is an unexplored avenue in the analysis of semantic errors made by learners of English. While behavioral studies have studied the L1 effects on L2 by looking at two or three L1s, computational methods have compared L1 and L2 based on lexical distributions and co-occurrence characteristics in an error detection task. However, distributed representations of words and their semantic properties have yet to be utilized in the study of error labelled corpora. Based on the experimental confirmations presented in prior literature, two hypotheses have been tested in this study:
+
+\begin{enumerate}
+    \item Whether distributed representation of words reflect L1 influence on learner English error words.
+    \item Whether distributed representation of learner english error words exhibit the relationships between typologically similar languages.
+\end{enumerate}
+
+\subsubsection{Plan of the Paper} The rest of the paper is structured as follows: First, the corpus used in this study is described, followed by the proposed method. Each hypothesis is individually tested in the methods section and the results are reported. An analysis of the results is presented in the General Discussion section. The paper ends with Future Work and Concluding remarks. 
+% In Second Language Acquisition Literature (SLA), it has been found that lexico-semantic models have often proved challenging in making lexical choices for second language (L2) speakers of a language. Can this lexical-choice be explained by their first language (L1)? If yes, then can  In this paper we explore semantic errors made by learners of English while writing a short essay response for a given Prompt.
+
+
+\section{Corpus}
+
+The corpus used for this analysis is the Cambridge - First Certification in English (FCE) corpus \cite{yannakoudakisNewDatasetMethod2011}, which is a small subset of the Cambridge Learner Corpus \cite{nichollsCambridgeLearnerCorpus}. The FCE corpus contains error annotated short essay responses by learners of English taking the First Certification in English examination. There are 16 different L1 background represented in the 1244 different files containing the short essays. The corpus is manually annotated for errors, including their linguistic information such as the type of error and the part of speech involved in the correction, as well as the correct replacement. The annotation follows the scheme provided by Nicholls (2003). Certain basic statistics about the corpus have been listed in Table 1.
+
+Only the annotations involving a replacement of a content word were considered in order as semantic errors from the error annotations. The replacement category of errors have been labelled as \texttt{RX}, where X indicates the part of speech of the word in that context. For the purposes of this research, only Nouns (N), Adjectives (J), Verbs (V), and Adverbs (Y) have been considered as content words. For example, in the case of the annotations \texttt{test}, only \texttt{test} would qualify since it includes the replacement of \textit{test1} with \textit{test1}. Furthermore, the semantic errors containing multi-word expressions or phrases or errors counted as replacements but also containing misspellings were rejected for the purposes of this study. The incorrect-correct content word pairs were extracted based on the given criteria, resulting in a total of 5521 cases of incorrect usage of a content word, and its replacement.
+
+\subsection{Translation of Error Pairs into L1}
+
+The extracted incorrect-correct word pairs were then translated into the user's L1 using the Microsoft Azure Text Translator API \footnote{https://docs.microsoft.com/en-us/azure/cognitive-services/Translator/reference/v3-0-reference}. This was used in place of the widely used off-the-shelf Google Cloud Translator API since the latter only provides one-to-one word translations, without providing much choice about the part of speech, or the confidence with which it predicts a certain translation, both of which were available in the Azure API. Translated error pairs with multiple words as well as errors made by Dutch L1 speakers (only 5 cases) were discarded, resulting in a total of 4932 incorrect and correct word pairs (known as L1 and L2 pairs respectively, hereafter). Table 2 describes the number of semantic error cases for the various L1s represented in the corpus.
+
+\begin{table}[H]
+
+\caption{\label{tab:}Number of Error Cases per language (L1).}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\toprule
+\textbf{L1} & \textbf{n}\\
+\hline
+Spanish & 796\\
+French & 794\\
+Greek & 353\\
+Russian & 340\\
+Italian & 335\\
+\addlinespace
+Catalan & 325\\
+Chinese (Simplified) & 310\\
+Polish & 295\\
+German & 285\\
+Portuguese & 284\\
+\addlinespace
+Turkish & 272\\
+Japanese & 192\\
+Korean & 185\\
+Thai & 122\\
+Swedish & 44\\
+\bottomrule
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\section{Methods}
+
+\subsection{Distributed Representation of Words}
+
+\begin{figure*}[t]
+    % \vfill
+    \centering
+        \includegraphics[scale = 0.6]{fasttext_vs_polyglot_correlations.png}
+        \caption{Spearman's $\rho$ estimates and 95\% bootstrap confidence intervals for different L1s in the corpus.}
+        \label{fig:boot}
+    % \vfill
+\end{figure*}
+\raggedbottom
+
+%% Word representations have become an integral part of natural language processing \cite{bojanowskiEnrichingWordVectors2016}. In a representation, each word is mapped to a corresponding vector. Various representations, also called word embeddings have been proposed over the years. Word2vec \cite{mikolovEfficientEstimationWord2013} is one such continuous representation which assigns a unique vector for each word in an embedding space. However, not all languages present in the corpus have corresponding word2vec embeddings. 
+
+% changes
+%- single line description
+%- reasons why we use vectors (semantic info is req + multilingual data)
+%- talk about polyglot
+%- talk about fast text
+
+Word embeddings provide mapping between words and vectors in the embedding space, such that the semantic properties of the words are preserved. This mapping finds use in language models as well as computational metrics for language tasks. 
+
+Since the semantic errors made by L2 learners are considered in English as well as their translated L1 forms, distributed representations of words (word embeddings) trained on multi-lingual corpora were used in the study.
+
+
+
+
+Polyglot is a word representation which has embeddings for over 100 languages \cite{al-rfouPolyglotDistributedWord2013}. Each vector corresponding to a word in Polyglot has 64 dimensions. This embedding learns the vector for each word by scoring the word's surrounding context, and a corrupted context (the selected word swapped out randomly). 
+
+
+
+Fasttext was proposed to include subword information while training the word embeddings \cite{bojanowskiEnrichingWordVectors2016}. In Fasttext's embeddings, each vector of a word is composed of multiple subwords which are added together. This helps to capture more semantic information about the word compared to using the words and the context by themselves. Fasttext also has trained embeddings for over 100 languages, and hence finds use in the study. Compared to 64 in Polyglot, vectors in Fasttext embeddings have 300 dimensions. 
+
+
+\subsection{Semantic Overlap of Error pairs in L1 and L2}
+
+In order to measure the differences between the incorrect and correct word in a given language, the semantic properties of their vectors in the distributed vector space are taken into account. More formally, given the incorrect-correct word pair, $(i, c)$, the semantic overlap between $i$ and $c$ is computed. The Semantic Overlap quantifies the difference between the incorrect word and correct word in terms of their nearest neighbors in the vector space, by relying on the idea that if the two words have a high semantic overlap, then they will have related neighboring vectors. Mathematically, the Semantic Error Overlap $(SEO)$ for words $i$ and $c$ in language $L$ is computed as:
+\begin{equation} \label{seo}
+SEO_{L}(i, c) = \frac{1}{2k}[\sum_{c'\in NN^L_k(c)}cos(i, c') + \sum_{i'\in NN^L_k(i)}cos(c, i')]
+\end{equation}
+Where $NN^L_k(x)$ is a function that returns a set of $k$ nearest neighbors for word $x$ in vector space for language $L$ and $cos(x, y)$ is the cosine similarity between vectors $x$ and $y$. Intuitively, $SEO_L(i, c)$ is the average of the similarity between $i$ and $k$ nearest neighbors of $c$ and $c$ and $k$ nearest neighbors of $i$. For our experiments, $k$ is kept as 10.
+% \vfill
+\subsection{Hypothesis 1}
+
+Whether distributed representation of words reflect L1 influence on learner English error words.
+
+\subsubsection{Experiment} In order to measure influence of L1 on learner errors, the semantic overlap is computed for the L1 and the respective translated L2 word pairs over the fasttext as well as polyglot vector spaces. Japanese L1s were left out of the polyglot embeddings due to difficulty in parsing the translated pairs. In order to check whether the fasttext and polyglot embeddings capture the L1 influence on learner English, the Spearman's Rank Correlation Statistic between the overlaps in English as well as the L1 pairs is measured. A significantly positive correlation between the overlaps sustained across languages would indicate a role of L1 in influencing errors made by the learner. To test significance, p-values are computed, along with the 95\% bootstrap confidence intervals for 1000 resamples per language. The resulting correlation estimates between the overlaps along with the \textit{p-values} are shown in Table \ref{tab:hyp1}, while the bootstrap confidence intervals are shown in Figure \ref{fig:boot}.
+
+\subsubsection{Results} 
+% It can be seen from Table \ref{tab:hyp1} that the fasttext overlaps between L1 and English have a moderate positive Spearman's $\rho$, which are all significant as seen from the p-values as well as the 95\% bootstrap CIs in Figure \ref{fig:my_label}. While the polyglot 
+According to Table \ref{tab:hyp1} and Figure \ref{fig:boot}, the fasttext and polyglot overlaps between L1 and English error overlaps have a moderately positive Spearman's $\rho$. Apart from Thai error overlaps, as well as Japanese in the case of polyglot, all languages showed a significant correlation estimate between L1 and L2 error overlaps. 
+\begin{table}[H]
+\caption{\label{tab:hyp1}Spearman's $\rho$ between L1 and L2 overlaps in the error word pairs for fasttext and polyglot embeddings.}
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+\toprule
+\hline
+\textbf{L1} & \textbf{fasttext} & \textbf{polyglot}\\
+\midrule
+\hline
+Catalan & 0.403 ($<$0.001) & 0.312 ($<$0.001)\\
+Chinese (Simplified) & 0.588 ($<$0.001) & 0.322 ($<$0.001)\\
+French & 0.477 ($<$0.001) & 0.373 ($<$0.001)\\
+German & 0.505 ($<$0.001) & 0.384 ($<$0.001)\\
+Greek & 0.489 ($<$0.001) & 0.351 ($<$0.001)\\
+\addlinespace
+Italian & 0.565 ($<$0.001) & 0.355 ($<$0.001)\\
+Japanese & 0.457 ($<$0.001) & \textit{NA}\\
+Korean & 0.366 ($<$0.001) & 0.281 ($<$0.001)\\
+Polish & 0.546 ($<$0.001) & 0.356 ($<$0.001)\\
+Portuguese & 0.543 ($<$0.001) & 0.369 ($<$0.001)\\
+Russian & 0.552 ($<$0.001) & 0.129 (0.025)\\
+\addlinespace
+Spanish & 0.539 ($<$0.001) & 0.351 ($<$0.001)\\
+Swedish & 0.573 ($<$0.001) & 0.516 ($<$0.001)\\
+Thai & 0.373 ($<$0.001) & 0.006 (0.953)\\
+Turkish & 0.492 ($<$0.001) & 0.369 ($<$0.001)\\
+\bottomrule
+\hline
+\multicolumn{3}{l}{\textit{Note:} Correlation Estimates and \textit{p} values are listed as}\\
+\multicolumn{3}{l}{estimate (p-value)}
+\end{tabular}
+\end{center}
+\end{table}
+\subsection{Hypothesis 2}
+
+Whether distributed representation of learner English error words exhibit the relationships between typologically similar languages.
+
+\subsubsection{Experiment} L1 effects on the development of L2 semantic models have been quantitatively shown to be portable across similar languages in terms of detecting errors \cite{kochmarCrossLingualLexicoSemanticTransfer2016, kochmarModellingSemanticAcquisition2017}. 
+% In order to capture this behavior in the given incorrect-correct word pairs, it can be hypothesized that languages similar to English should have 
+To test whether word embedding based overlaps between incorrect-correct pairs capture this property between languages, it can be hypothesized that languages similar to English should have similar overlap distribution. For example, Germanic Languages should have similar semantic overlap distribution compared to Asian Languages. In this study, the degree to which the overlap distributions between two languages match is measured by the Jensen-Shannon Divergence (JSD) metric computed between the overlap distribution of L1 and English (L2) pairs. The JSD between error pairs in L1 and L2 is defined as: 
+\begin{equation}
+\label{jsd}
+    JSD(L1, L2) = \frac{1}{2} KL(L1||M) + \frac{1}{2}KL(L2||M)
+\end{equation}
+JSD is a symmetric form of the Kullback-Leibler Divergence (KL-divergence) between two probability distributions. The KL-divergence, denoted by $KL(x||y)$ is the unsymmetrical measure of divergence between distributions $x$ and $y$. In \ref{jsd}, $L1$ and $L2$ denote the overlap distribution of the L1 and L2 error pairs in their respective language vector spaces, and $M$ is the average of the $L1$ and $L2$ distributions.
+
+Five groups of languages are considered: Germanic, Romance, Asian, Slavic, and Other. Table \ref{tab:lang_groups} lists the various languages covered in each group. The overlaps for the language groups were normalized into a distribution using the softmax function, defined as:
+\begin{equation}
+    \label{softmax}
+    \sigma_i(x) = \frac{e^{x_i}}{\sum^{n}_{j} e^{x_j}}
+\end{equation}
+
+\begin{table}[h]
+
+\caption{\label{tab:lang_groups}Language Groups and the languages that they contain.}
+\begin{center}
+\begin{tabular}{|c|c|}
+\toprule
+\hline
+\textbf{Group} & \textbf{Languages}\\
+\midrule
+\hline
+Romance & Catalan, French, Italian, Portuguese, Spanish\\
+Asian & Chinese (Simplified), Japanese, Korean, Thai\\
+Other & Dutch, Greek, Turkish\\
+Germanic & German, Swedish\\
+Slavic & Polish, Russian\\
+\bottomrule
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+The JSD was computed over the overlap distributions in fasttext as well as polyglot, and results are reported in Table \ref{tab:jsd}.
+
+\begin{table}[h]
+
+\caption{\label{tab:jsd}Jensen-Shannon divergence for Language groups based on overlaps computed in fasttext and polyglot vectors.}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\toprule
+\hline
+\textbf{Group} & \textbf{fasttext} & \textbf{polyglot}\\
+\midrule
+\hline
+Germanic & 0.0043 & 0.0093\\
+Asian & 0.0048 & 0.0105\\
+Romance & 0.0049 & 0.0100\\
+Slavic & 0.0050 & 0.0127\\
+Other & 0.0056 & 0.0105\\
+% \bottomrule
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\subsubsection{Results} The results in Table \ref{tab:jsd} show that the divergence values for Germanic languages are the least, indicating a similar behavior between the overlaps in the errors made by German learners of English. 
+
+\section{General Discussion}
+
+\section{Future Work}
+
+\section{Conclusion}
+
+% \section{Acknowledgments}
+
+% Many thanks to our Anonymous Reviewers for their feedback on this project. 
+
+\bibliographystyle{apacite}
+
+\setlength{\bibleftmargin}{.125in}
+\setlength{\bibindent}{-\bibleftmargin}
+
+\bibliography{CogSci_Template}
+
+
+\end{document}

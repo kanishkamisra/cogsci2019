@@ -1,0 +1,412 @@
+{\rtf1\ansi\uc1\deff0\deflang1024
+{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}
+{\f1\fnil\fcharset0 Arial;}
+{\f2\fnil\fcharset0 Arial;}
+{\f3\fnil\fcharset0 Courier New;}
+{\f4\fnil\fcharset0 Zapf Chancery;}
+{\f5\fnil\fcharset0 STIXGeneral;}
+}
+{\colortbl;
+\red0\green0\blue0;
+\red0\green0\blue255;
+\red0\green255\blue255;
+\red0\green255\blue0;
+\red255\green0\blue255;
+\red255\green0\blue0;
+\red255\green255\blue0;
+\red255\green255\blue255;
+}
+{\stylesheet
+{\s0\qj\widctlpar\f0\fs20 \snext0 Normal;}
+{\cs10 \additive\ssemihidden Default Paragraph Font;}
+{\s1\qc\sb240\sa120\keepn\f0\b\fs40 \sbasedon0\snext0 Part;}
+{\s2\ql\sb240\sa120\keepn\f0\b\fs40 \sbasedon0\snext0 heading 1;}
+{\s3\ql\sb240\sa120\keepn\f0\b\fs32 \sbasedon0\snext0 heading 2;}
+{\s4\ql\sb240\sa120\keepn\f0\b\fs32 \sbasedon0\snext0 heading 3;}
+{\s5\ql\sb240\sa120\keepn\f0\b\fs24 \sbasedon0\snext0 heading 4;}
+{\s6\ql\sb240\sa120\keepn\f0\b\fs24 \sbasedon0\snext0 heading 5;}
+{\s7\ql\sb240\sa120\keepn\f0\b\fs24 \sbasedon0\snext0 heading 6;}
+{\s8\qr\sb120\sa120\keep\widctlpar\f0 \sbasedon0\snext8 rightpar;}
+{\s9\qc\sb120\sa120\keep\widctlpar\f0 \sbasedon0\snext9 centerpar;}
+{\s10\ql\sb120\sa120\keep\widctlpar\f0 \sbasedon0\snext10 leftpar;}
+{\s11\ql\sb120\sa120\keep\widctlpar\f0 \sbasedon0\snext0 equation;}
+{\s12\ql\sb120\sa120\keep\widctlpar\f0 \sbasedon0\snext0 equationNum;}
+{\s13\ql\sb120\sa120\keep\widctlpar\f0 \sbasedon0\snext0 equationAlign;}
+{\s14\ql\sb120\sa120\keep\widctlpar\f0 \sbasedon0\snext0 equationAlignNum;}
+{\s15\ql\sb120\sa120\keep\widctlpar\f0 \sbasedon0\snext0 equationArray;}
+{\s16\ql\sb120\sa120\keep\widctlpar\f0 \sbasedon0\snext0 equationArrayNum;}
+{\s17\ql\sb120\sa120\keep\widctlpar\f0\fs20 \sbasedon0\snext0 theorem;}
+{\s18\ql\sb120\sa120\keep\widctlpar\f0 \sbasedon0\snext0 bitmapCenter;}
+{\s20\qc\sb240\sa240\b\f0\fs36 \sbasedon0\snext21 Title;}
+{\s21\qc\sa120\f0\fs20 \sbasedon0\snext0 author;}
+{\s22\ql\tqc\tx4536\tqr\tx9072\f0\fs20 \sbasedon0\snext22 footer;}
+{\s23\ql\tqc\tx4536\tqr\tx9072\f0\fs20 \sbasedon0\snext23 header;}
+{\s30\ql\sb120\sa120\keep\widctlpar\f0 \sbasedon0\snext0 caption;}
+{\s31\qc\sb120\sa0\keep\widctlpar\f0\fs20 \sbasedon0\snext0 Figure;}
+{\s32\qc\sb120\sa0\keep\widctlpar\f0\fs20 \sbasedon0\snext32 Table;}
+{\s33\qc\sb120\sa0\keep\widctlpar\f0\fs20 \sbasedon0\snext33 Tabular;}
+{\s34\qc\sb120\sa0\keep\widctlpar\f0\fs20 \sbasedon0\snext34 Tabbing;}
+{\s35\qj\li1024\ri1024\fi340\widctlpar\f0\fs20 \sbasedon0\snext35 Quote;}
+{\s38\ql\widctlpar\f3\fs20 \snext38 verbatim;}
+{\s46\ql\fi-283\li283\lin283\sb0\sa120\widctlpar\tql\tx283\f0\fs20 \sbasedon0\snext46 List;}
+{\s47\ql\fi-283\li283\lin283\sb0\sa120\widctlpar\tql\tx283\f0\fs20 \sbasedon0\snext47 List 1;}
+{\s50\qc\sb120\sa120\keep\widctlpar\f0 \sbasedon0\snext0 latex picture;}
+{\s51\qc\sb120\sa120\keep\widctlpar\f0 \sbasedon0\snext0 subfigure;}
+{\s61\ql\sb240\sa120\keepn\f0\b\fs32 \sbasedon0\snext62 bibheading;}
+{\s62\ql\fi-567\li567\sb0\sa0\f0\fs20 \sbasedon0\snext62 bibitem;}
+{\s64\ql\fi-283\li283\lin283\sb0\sa120\widctlpar\tql\tx283\f0\fs20 \sbasedon0\snext64 endnotes;}
+{\s65\ql\fi-113\li397\lin397\f0\fs20 \sbasedon0\snext65 footnote text;}
+{\s66\qj\fi-170\li454\lin454\f0\fs20 \sbasedon0\snext66 endnote text;}
+{\cs62\super \additive\sbasedon10 footnote reference;}
+{\cs63\super \additive\sbasedon10 endnote reference;}
+{\s67\ql\sb60\sa60\keepn\f0\fs20 \sbasedon0\snext67 acronym;}
+{\s70\qc\sa120\b\f0\fs20 \sbasedon0\snext71 abstract title;}
+{\s71\qj\li1024\ri1024\fi340\widctlpar\f0\fs20 \sbasedon0\snext0 abstract;}
+{\s80\ql\sb240\sa120\keepn\f0\b\fs20 \sbasedon0\snext0 contents_heading;}
+{\s81\ql\li425\tqr\tldot\tx8222\sb240\sa60\keepn\f0\fs20\b \sbasedon0\snext82 toc 1;}
+{\s82\ql\li512\tqr\tldot\tx8222\sb60\sa60\keepn\f0\fs20 \sbasedon0\snext83 toc 2;}
+{\s83\ql\li1024\tqr\tldot\tx8222\sb60\sa60\keepn\f0\fs20 \sbasedon0\snext84 toc 3;}
+{\s84\ql\li1536\tqr\tldot\tx8222\sb60\sa60\keepn\f0\fs20 \sbasedon0\snext85 toc 4;}
+{\s85\ql\li2048\tqr\tldot\tx8222\sb60\sa60\keepn\f0\fs20 \sbasedon0\snext86 toc 5;}
+{\s86\ql\li2560\tqr\tldot\tx8222\sb60\sa60\keepn\f0\fs20 \sbasedon0\snext86 toc 6;}
+}
+{\info
+{\title Original file was cogsci-final-draft.tex}
+{\doccomm Created using latex2rtf 2.3.8 r1240 (released June 16 2014) on Tue Jan 29 13:55:53 2019
+}
+}
+{\footer\pard\plain\f0\fs20\qc\chpgn\par}
+\paperw12280\paperh15900\margl2680\margr2700\margt2540\margb1760\pgnstart0\widowctrl\qj\ftnbj\f0\aftnnar
+{\pard\plain\s20\qc\sb240\sa240\b\f0\fs36\sl240\slmult1 \fi0 Semantic Errors in Learner English: Insights from Distributed Vector Representations of error words in L1 and L2\par
+\pard\plain\s21\qc\sa120\f0\fs20\sl240\slmult1 \fi300 {\fs24 \i0\scaps0\b Kanishka Misra (kmisra@purdue.edu)} \par
+\pard\plain\s21\qc\sa120\f0\fs20\sl240\slmult1 \fi0 Purdue University \par
+\pard\plain\s21\qc\sa120\f0\fs20\sl240\slmult1 \fi0 West Lafayette, IN 47906 USA {\fs24 \i0\scaps0\b Hemanth Devarapalli (hdevarap@purdue.edu)} \par
+\pard\plain\s21\qc\sa120\f0\fs20\sl240\slmult1 \fi0 Purdue University \par
+\pard\plain\s21\qc\sa120\f0\fs20\sl240\slmult1 \fi0 West Lafayette, IN 47906 USA {\fs24 \i0\scaps0\b Julia Taylor Rayz (jtaylor1@purdue.edu)} \par
+\pard\plain\s21\qc\sa120\f0\fs20\sl240\slmult1 \fi0 Purdue University \par
+\pard\plain\s21\qc\sa120\f0\fs20\sl240\slmult1 \fi0 West Lafayette, IN 47906 USA\par
+\pard\plain\s21\qc\sa120\f0\fs20\sl240\slmult1 \fi300 \chdate \par
+{\pard\plain\s70\qc\sa120\b\f0\fs20\sl240\slmult1 \fi300 Abstract\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \li1024\ri1024\fi300  Include no author information in the initial submission, to facilitate blind review. The abstract should be one paragraph, indented 1/8\~inch on both sides, in 9\~point font with single spacing. The heading \ldblquote {\i0\scaps0\b Abstract}\rdblquote  should be 10\~point, bold, centered, with one line of space below it. This one-paragraph abstract section is required only for standard six page proceedings papers. Following the abstract should be a blank line, followed by the header \ldblquote {\i0\scaps0\b Keywords:}\rdblquote  and a list of descriptive keywords separated by semicolons, all in 9\~point font, as shown below.\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \li1024\ri1024\fi300 {\b Keywords:} add your choice of indexing terms or keywords; kindly use a semicolon; between each term \par
+}\pard\plain\s3\ql\sb240\sa120\keepn\f0\b\fs32\sl240\slmult1 \sb360 \fi0 1  Introduction\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \sb60 \fi0 While writing in English, {\i French} speakers often use {\i scene} in place of {\i stage}, while {\i Catalan} speakers often use the word {\i something} instead of {\i something else}. Can these choice of words be attributed to the person\rquote s native language?\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \fi300 Patterns of lexical choice in content produced by non-native speakers have been widely studied by Second Language Acquisition (SLA) and Natural Language Processing (NLP) researchers. It has been shown that a person\rquote s L1 influences their L2 acquisition in various ways 
+(de2000hard, hopmanPredictorsL2Word
+). Within SLA, researchers have focused on analyzing L2 acquisition in terms of translation and semantic similarity and their impact on L2 acquisition, using behavioral studies 
+(degani2010ambiguous, bracken2017translation, zhang2018semantic
+) as well as corpus analysis 
+(gilquin2011efl
+). In the case of NLP, research has studied the lexical choice made in L2 as an error detection or a error correction problem 
+(ng2014conll
+). The error detection and correction literature has focused on handling of function words due to their frequency of being erred in grammatical mistakes 
+(Rozovskaya:2010:GCS:1870658.1870752, Rozovskaya:2011:ASM:2002472.2002589
+), or word collocations in learner corpora 
+(chang2008automatic, futagi2008computational, dahlmeier2011correcting
+). \par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \fi300 More recently, semantic errors in learner corpora have been studied in the form of combinations of content words. Content word combinations and collocations have been shown to be challenging to learn {cite} for L2 learners. The L1 effects on L2 semantic knowledge were analyzed using three types of content word combinations (Adjective-Noun, Verb-Direct Object, and Subject-Verb) in 
+(kochmarCrossLingualLexicoSemanticTransfer2016, kochmarModellingSemanticAcquisition2017
+). By comparing the frequency distributions of words in non-native and native english corpora, kochmarModellingSemanticAcquisition2017 found that for typologically distant L1s, the lexical distribution was closer to that of native english compared to typologically closer L1s. In terms of L1 influence, kochmarCrossLingualLexicoSemanticTransfer2016 experimentally showed that semantic models derived from a person\rquote s L1 helps improve error detection in content word combinations, following the results confirmed in previous research 
+(chang2008automatic, Rozovskaya:2010:GCS:1870658.1870752, Rozovskaya:2011:ASM:2002472.2002589
+). Additionally, in the case of language typology, kochmarCrossLingualLexicoSemanticTransfer2016 found semantic models learned from typologically related L1s to be portable in the detection of learner english errors.\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \fi300 Recent research within NLP has seen the emergence of neural network based models of distributed word representations, also called word embeddings. Neural Word embeddings were first introduced by Bengio et al. (2003) and have become an integral part of NLP 
+(bojanowskiEnrichingWordVectors2016
+). These word representations have found to capture semantic information about words by assigning each vector to a given word, such that words with similar contexts have similar vectors. Studies focusing on the intrinsic evaluation of word embedding models by comparing them to human judgment on similarity and relatedness between words, have shown competent performance of word vectors in terms of correlation with human judgment 
+(rubenstein1965contextual, finkelstein2002placing, bruni2012distributional, hill2015simlex
+). Word embeddings also exhibit the capability to solve verbal analogy problems, such as {\f3 king - man + woman = queen} and have garnered the attention of Cognitive Science. A recent study analyzed two popular word embedding models, GloVe and word2vec as accounts of analogy to evaluate their performance in a relational similarity task 
+(chen2017evaluating
+) and showed that the models capture certain forms of similarities more than others. Word embeddings were also used to analyze the predictors of L2 word learning accuracy 
+(hopmanPredictorsL2Word
+). In case of using NLP methods in Second Language Acquisition, vector representations of words have been successful in improving error detection on learner corpus of essays 
+(kochmarCrossLingualLexicoSemanticTransfer2016
+).\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \fi300 Based on prior research, there is an unexplored avenue in the analysis of semantic errors made by learners of English. While behavioral studies have studied the L1 effects on L2 by looking at two or three L1s, computational methods have compared L1 and L2 based on lexical distributions and co-occurrence characteristics in an error detection task. However, distributed representations of words and their semantic properties have yet to be utilized in the study of error labelled corpora. Based on the experimental confirmations presented in prior literature, two hypotheses have been tested in this study:\par
+{\pard\plain\s46\ql\fi-283\li283\lin283\sb0\sa120\widctlpar\tql\tx283\f0\fs20\sl240\slmult1 \sb50 \li600\fi-300 1.\tab
+Whether distributed representation of words reflect L1 influence on learner English error words. \par
+\pard\plain\s46\ql\fi-283\li283\lin283\sb0\sa120\widctlpar\tql\tx283\f0\fs20\sl240\slmult1 \sb50 \li600\fi-300 2.\tab
+Whether distributed representation of learner english error words exhibit the relationships between typologically similar languages. \par
+}\pard\plain\s5\ql\sb240\sa120\keepn\f0\b\fs24\sl240\slmult1 \sb180 \fi0 1.0.1  Plan of the Paper\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \sb60 \fi0 The rest of the paper is structured as follows: First, the corpus used in this study is described, followed by the proposed method. Each hypothesis is individually tested in the methods section and the results are reported. An analysis of the results is presented in the General Discussion section. The paper ends with Future Work and Concluding remarks. \par
+\pard\plain\s3\ql\sb240\sa120\keepn\f0\b\fs32\sl240\slmult1 \sb240 \fi0 2  Corpus\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \sb60 \fi0 The corpus used for this analysis is the Cambridge - First Certification in English (FCE) corpus 
+(yannakoudakisNewDatasetMethod2011
+), which is a small subset of the Cambridge Learner Corpus 
+(nichollsCambridgeLearnerCorpus
+). The FCE corpus contains error annotated short essay responses by learners of English taking the First Certification in English examination. There are 16 different L1 background represented in the 1244 different files containing the short essays. The corpus is manually annotated for errors, including their linguistic information such as the type of error and the part of speech involved in the correction, as well as the correct replacement. The annotation follows the scheme provided by Nicholls (2003). Certain basic statistics about the corpus have been listed in Table 1.\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \fi300 Only the annotations involving a replacement of a content word were considered in order as semantic errors from the error annotations. The replacement category of errors have been labelled as {\f3 RX}, where X indicates the part of speech of the word in that context. For the purposes of this research, only Nouns (N), Adjectives (J), Verbs (V), and Adverbs (Y) have been considered as content words. For example, in the case of the annotations {\f3 test}, only {\f3 test} would qualify since it includes the replacement of {\i test1} with {\i test1}. Furthermore, the semantic errors containing multi-word expressions or phrases or errors counted as replacements but also containing misspellings were rejected for the purposes of this study. The incorrect-correct content word pairs were extracted based on the given criteria, resulting in a total of 5521 cases of incorrect usage of a content word, and its replacement.\par
+\pard\plain\s4\ql\sb240\sa120\keepn\f0\b\fs32\sl240\slmult1 \sb120 \fi0 2.1  Translation of Error Pairs into L1\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \sb60 \fi0 The extracted incorrect-correct word pairs were then translated into the user\rquote s L1 using the Microsoft Azure Text Translator API {\cs62\super\chftn}
+{\*\footnote\pard \s65\ql\fi-113\li397\lin397\f0\fs20{\cs62\super\chftn} https://docs.microsoft.com/en-us/azure/cognitive-services/Translator/reference/v3-0-reference}
+. This was used in place of the widely used off-the-shelf Google Cloud Translator API since the latter only provides one-to-one word translations, without providing much choice about the part of speech, or the confidence with which it predicts a certain translation, both of which were available in the Azure API. Translated error pairs with multiple words as well as errors made by Dutch L1 speakers (only 5 cases) were discarded, resulting in a total of 4932 incorrect and correct word pairs (known as L1 and L2 pairs respectively, hereafter). Table 2 describes the number of semantic error cases for the various L1s represented in the corpus.\par
+{\pard\plain\s32\qc\sb120\sa0\keep\widctlpar\f0\fs20\sl240\slmult1 \sb240 \fi0 \par
+\pard\plain\s30\ql\sb120\sa120\keep\widctlpar\f0\sl240\slmult1 \fi0 {Table {\*\bkmkstart BMtab_}1{\*\bkmkend BMtab_}: Number of Error Cases per language (L1).}{\field{\*\fldinst TC "1 Number of Error Cases per language (L1)." \\f t}{\fldrslt }}\par
+{{\pard\plain\s30\ql\sb120\sa120\keep\widctlpar\f0\sl240\slmult1 \fi0 \par
+{\trowd\clbrdrl\brdrs\clbrdrt\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx4989\clbrdrl\brdrs\clbrdrt\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {  {\b L1}}\cell}
+{\pard\intbl\qc {{\b n}}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx4989\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc { Spanish}\cell}
+{\pard\intbl\qc {796}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx4989\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {French}\cell}
+{\pard\intbl\qc {794}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx4989\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Greek}\cell}
+{\pard\intbl\qc {353}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx4989\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Russian}\cell}
+{\pard\intbl\qc {340}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx4989\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Italian}\cell}
+{\pard\intbl\qc {335}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx4989\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc { Catalan}\cell}
+{\pard\intbl\qc {325}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx4989\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Chinese (Simplified)}\cell}
+{\pard\intbl\qc {310}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx4989\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Polish}\cell}
+{\pard\intbl\qc {295}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx4989\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {German}\cell}
+{\pard\intbl\qc {285}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx4989\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Portuguese}\cell}
+{\pard\intbl\qc {284}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx4989\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc { Turkish}\cell}
+{\pard\intbl\qc {272}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx4989\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Japanese}\cell}
+{\pard\intbl\qc {192}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx4989\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Korean}\cell}
+{\pard\intbl\qc {185}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx4989\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Thai}\cell}
+{\pard\intbl\qc {122}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx4989\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Swedish}\cell}
+{\pard\intbl\qc {44}\cell}
+\row}
+} \par
+}}\pard\plain\s3\ql\sb240\sa120\keepn\f0\b\fs32\sl240\slmult1 \sb480 \fi0 3  Methods\par
+\pard\plain\s4\ql\sb240\sa120\keepn\f0\b\fs32\sl240\slmult1 \sb180 \fi0 3.1  Distributed Representation of Words\par
+{\pard\plain\s31\qc\sb120\sa0\keep\widctlpar\f0\fs20\sl240\slmult1 \sb300 \fi0  \par
+\pard\plain\s9\qc\sb120\sa120\keep\widctlpar\f0\sl240\slmult1 \fi0  \par
+\pard\plain\s30\ql\sb120\sa120\keep\widctlpar\f0\sl240\slmult1 \fi0 {Figure {\*\bkmkstart BMfig_boot}1{\*\bkmkend BMfig_boot}: Spearman\rquote s {{\u1009*}} estimates and 95% bootstrap confidence intervals for different L1s in the corpus.}{\field{\*\fldinst TC "1 Spearman\rquote s {{\u1009*}} estimates and 95% bootstrap confidence intervals for different L1s in the corpus." \\f f}{\fldrslt }}\par
+}\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \sb240 \fi300 Word embeddings provide mapping between words and vectors in the embedding space, such that the semantic properties of the words are preserved. This mapping finds use in language models as well as computational metrics for language tasks. \par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \fi300 Since the semantic errors made by L2 learners are considered in English as well as their translated L1 forms, distributed representations of words (word embeddings) trained on multi-lingual corpora were used in the study.\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \fi300 Polyglot is a word representation which has embeddings for over 100 languages 
+(al-rfouPolyglotDistributedWord2013
+). Each vector corresponding to a word in Polyglot has 64 dimensions. This embedding learns the vector for each word by scoring the word\rquote s surrounding context, and a corrupted context (the selected word swapped out randomly). \par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \fi300 Fasttext was proposed to include subword information while training the word embeddings 
+(bojanowskiEnrichingWordVectors2016
+). In Fasttext\rquote s embeddings, each vector of a word is composed of multiple subwords which are added together. This helps to capture more semantic information about the word compared to using the words and the context by themselves. Fasttext also has trained embeddings for over 100 languages, and hence finds use in the study. Compared to 64 in Polyglot, vectors in Fasttext embeddings have 300 dimensions. \par
+\pard\plain\s4\ql\sb240\sa120\keepn\f0\b\fs32\sl240\slmult1 \sb120 \fi0 3.2  Semantic Overlap of Error pairs in L1 and L2\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \sb60 \fi0 In order to measure the differences between the incorrect and correct word in a given language, the semantic properties of their vectors in the distributed vector space are taken into account. More formally, given the incorrect-correct word pair, {({\i i},{\i c})}, the semantic overlap between {{\i i}} and {{\i c}} is computed. The Semantic Overlap quantifies the difference between the incorrect word and correct word in terms of their nearest neighbors in the vector space, by relying on the idea that if the two words have a high semantic overlap, then they will have related neighboring vectors. Mathematically, the Semantic Error Overlap {({\i S}{\i E}{\i O})} for words {{\i i}} and {{\i c}} in language {{\i L}} is computed as: {\par
+\pard\plain\s12\ql\sb120\sa120\keep\widctlpar\f0\tqc\tx3450\tqr\tx6900\sl240\slmult1 \fi0 \tab
+{\field{\*\fldinst{ EQ {\i S}{\i E}{\i O}\\s\\do5({\fs16 {\i L}})({\i i}\\,{\i c})= \\F(1,2{\i k})[ \\i \\su({\i c}'{\f5\u8712*}{\i N}{\i N}\\s\\up({\fs16 {\i L},{\i k}})({\i c}),, ){\i c}{\i o}{\i s}({\i i}\\,{\i c}')+ \\i \\su({\i i}'{\f5\u8712*}{\i N}{\i N}\\s\\up({\fs16 {\i L},{\i k}})({\i i}),, ){\i c}{\i o}{\i s}({\i c}\\,{\i i}')]}}{\fldrslt }}
+\tab{\b0 ({\*\bkmkstart BMseo}1{\*\bkmkend BMseo})}\par
+}\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \fi0 Where {{\field{\*\fldinst{ EQ {\i N}{\i N}\\s\\up({\fs16 {\i L},{\i k}})({\i x})}}{\fldrslt }}
+} is a function that returns a set of {{\i k}} nearest neighbors for word {{\i x}} in vector space for language {{\i L}} and {{\i c}{\i o}{\i s}({\i x},{\i y})} is the cosine similarity between vectors {{\i x}} and {{\i y}}. Intuitively, {{\field{\*\fldinst{ EQ {\i S}{\i E}{\i O}\\s\\do5({\fs16 {\i L}})({\i i}\\,{\i c})}}{\fldrslt }}
+} is the average of the similarity between {{\i i}} and {{\i k}} nearest neighbors of {{\i c}} and {{\i c}} and {{\i k}} nearest neighbors of {{\i i}}. For our experiments, {{\i k}} is kept as 10. \par
+\pard\plain\s4\ql\sb240\sa120\keepn\f0\b\fs32\sl240\slmult1 \sb120 \fi0 3.3  Hypothesis 1\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \sb60 \fi0 Whether distributed representation of words reflect L1 influence on learner English error words.\par
+\pard\plain\s5\ql\sb240\sa120\keepn\f0\b\fs24\sl240\slmult1 \sb120 \fi0 3.3.1  Experiment\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \sb60 \fi0 In order to measure influence of L1 on learner errors, the semantic overlap is computed for the L1 and the respective translated L2 word pairs over the fasttext as well as polyglot vector spaces. Japanese L1s were left out of the polyglot embeddings due to difficulty in parsing the translated pairs. In order to check whether the fasttext and polyglot embeddings capture the L1 influence on learner English, the Spearman\rquote s Rank Correlation Statistic between the overlaps in English as well as the L1 pairs is measured. A significantly positive correlation between the overlaps sustained across languages would indicate a role of L1 in influencing errors made by the learner. To test significance, p-values are computed, along with the 95% bootstrap confidence intervals for 1000 resamples per language. The resulting correlation estimates between the overlaps along with the {\i p-values} are shown in Table {\field{\*\fldinst{\lang1024 REF BMtab_hyp1 \\* MERGEFORMAT }}{\fldrslt{?}}}, while the bootstrap confidence intervals are shown in Figure {\field{\*\fldinst{\lang1024 REF BMfig_boot \\* MERGEFORMAT }}{\fldrslt{?}}}.\par
+\pard\plain\s5\ql\sb240\sa120\keepn\f0\b\fs24\sl240\slmult1 \sb120 \fi0 3.3.2  Results\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \sb60 \fi0 According to Table {\field{\*\fldinst{\lang1024 REF BMtab_hyp1 \\* MERGEFORMAT }}{\fldrslt{?}}} and Figure {\field{\*\fldinst{\lang1024 REF BMfig_boot \\* MERGEFORMAT }}{\fldrslt{?}}}, the fasttext and polyglot overlaps between L1 and English error overlaps have a moderately positive Spearman\rquote s {{\u1009*}}. Apart from Thai error overlaps, as well as Japanese in the case of polyglot, all languages showed a significant correlation estimate between L1 and L2 error overlaps. {\par
+\pard\plain\s32\qc\sb120\sa0\keep\widctlpar\f0\fs20\sl240\slmult1 \sb240 \fi0  \par
+\pard\plain\s30\ql\sb120\sa120\keep\widctlpar\f0\sl240\slmult1 \fi0 {Table {\*\bkmkstart BMtab_hyp1}2{\*\bkmkend BMtab_hyp1}: Spearman\rquote s {{\u1009*}} between L1 and L2 overlaps in the error word pairs for fasttext and polyglot embeddings.}{\field{\*\fldinst TC "2 Spearman\rquote s {{\u1009*}} between L1 and L2 overlaps in the error word pairs for fasttext and polyglot embeddings." \\f t}{\fldrslt }}\par
+{{\pard\plain\s30\ql\sb120\sa120\keep\widctlpar\f0\sl240\slmult1 \fi0 \par
+{\trowd\clbrdrl\brdrs\clbrdrt\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx3021\clbrdrl\brdrs\clbrdrt\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx4960\clbrdrl\brdrs\clbrdrt\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {  {\b L1}}\cell}
+{\pard\intbl\qc {{\b fasttext}}\cell}
+{\pard\intbl\qc {{\b polyglot}}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx3021\clbrdrl\brdrs\clbrdrr\brdrs\cellx4960\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {  Catalan}\cell}
+{\pard\intbl\qc {0.403 ({<}0.001)}\cell}
+{\pard\intbl\qc {0.312 ({<}0.001)}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx3021\clbrdrl\brdrs\clbrdrr\brdrs\cellx4960\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Chinese (Simplified)}\cell}
+{\pard\intbl\qc {0.588 ({<}0.001)}\cell}
+{\pard\intbl\qc {0.322 ({<}0.001)}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx3021\clbrdrl\brdrs\clbrdrr\brdrs\cellx4960\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {French}\cell}
+{\pard\intbl\qc {0.477 ({<}0.001)}\cell}
+{\pard\intbl\qc {0.373 ({<}0.001)}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx3021\clbrdrl\brdrs\clbrdrr\brdrs\cellx4960\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {German}\cell}
+{\pard\intbl\qc {0.505 ({<}0.001)}\cell}
+{\pard\intbl\qc {0.384 ({<}0.001)}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx3021\clbrdrl\brdrs\clbrdrr\brdrs\cellx4960\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Greek}\cell}
+{\pard\intbl\qc {0.489 ({<}0.001)}\cell}
+{\pard\intbl\qc {0.351 ({<}0.001)}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx3021\clbrdrl\brdrs\clbrdrr\brdrs\cellx4960\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc { Italian}\cell}
+{\pard\intbl\qc {0.565 ({<}0.001)}\cell}
+{\pard\intbl\qc {0.355 ({<}0.001)}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx3021\clbrdrl\brdrs\clbrdrr\brdrs\cellx4960\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Japanese}\cell}
+{\pard\intbl\qc {0.457 ({<}0.001)}\cell}
+{\pard\intbl\qc {{\i NA}}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx3021\clbrdrl\brdrs\clbrdrr\brdrs\cellx4960\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Korean}\cell}
+{\pard\intbl\qc {0.366 ({<}0.001)}\cell}
+{\pard\intbl\qc {0.281 ({<}0.001)}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx3021\clbrdrl\brdrs\clbrdrr\brdrs\cellx4960\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Polish}\cell}
+{\pard\intbl\qc {0.546 ({<}0.001)}\cell}
+{\pard\intbl\qc {0.356 ({<}0.001)}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx3021\clbrdrl\brdrs\clbrdrr\brdrs\cellx4960\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Portuguese}\cell}
+{\pard\intbl\qc {0.543 ({<}0.001)}\cell}
+{\pard\intbl\qc {0.369 ({<}0.001)}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx3021\clbrdrl\brdrs\clbrdrr\brdrs\cellx4960\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Russian}\cell}
+{\pard\intbl\qc {0.552 ({<}0.001)}\cell}
+{\pard\intbl\qc {0.129 (0.025)}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx3021\clbrdrl\brdrs\clbrdrr\brdrs\cellx4960\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc { Spanish}\cell}
+{\pard\intbl\qc {0.539 ({<}0.001)}\cell}
+{\pard\intbl\qc {0.351 ({<}0.001)}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx3021\clbrdrl\brdrs\clbrdrr\brdrs\cellx4960\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Swedish}\cell}
+{\pard\intbl\qc {0.573 ({<}0.001)}\cell}
+{\pard\intbl\qc {0.516 ({<}0.001)}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx3021\clbrdrl\brdrs\clbrdrr\brdrs\cellx4960\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Thai}\cell}
+{\pard\intbl\qc {0.373 ({<}0.001)}\cell}
+{\pard\intbl\qc {0.006 (0.953)}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx3021\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx4960\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Turkish}\cell}
+{\pard\intbl\qc {0.492 ({<}0.001)}\cell}
+{\pard\intbl\qc {0.369 ({<}0.001)}\cell}
+\row}
+{\trowd\clmgf\cellx3021\clmrg\cellx4960\clmrg\cellx6899
+{\pard\intbl\ql {  {\i Note:} Correlation Estimates and {\i p} values are listed as\cell}
+{\pard\intbl\cell}
+{\pard\intbl}\cell}
+\row}
+{\trowd\clmgf\cellx3021\clmrg\cellx4960\clmrg\cellx6899
+{\pard\intbl\ql {estimate (p-value)\cell}
+{\pard\intbl\cell}
+{\pard\intbl}\cell}
+\row}
+} \par
+}}\pard\plain\s4\ql\sb240\sa120\keepn\f0\b\fs32\sl240\slmult1 \sb360 \fi0 3.4  Hypothesis 2\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \sb60 \fi0 Whether distributed representation of learner English error words exhibit the relationships between typologically similar languages.\par
+\pard\plain\s5\ql\sb240\sa120\keepn\f0\b\fs24\sl240\slmult1 \sb120 \fi0 3.4.1  Experiment\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \sb60 \fi0 L1 effects on the development of L2 semantic models have been quantitatively shown to be portable across similar languages in terms of detecting errors 
+(kochmarCrossLingualLexicoSemanticTransfer2016, kochmarModellingSemanticAcquisition2017
+). To test whether word embedding based overlaps between incorrect-correct pairs capture this property between languages, it can be hypothesized that languages similar to English should have similar overlap distribution. For example, Germanic Languages should have similar semantic overlap distribution compared to Asian Languages. In this study, the degree to which the overlap distributions between two languages match is measured by the Jensen-Shannon Divergence (JSD) metric computed between the overlap distribution of L1 and English (L2) pairs. The JSD between error pairs in L1 and L2 is defined as: {\par
+\pard\plain\s12\ql\sb120\sa120\keep\widctlpar\f0\tqc\tx3450\tqr\tx6900\sl240\slmult1 \fi0 \tab
+{\field{\*\fldinst{ EQ {\i J}{\i S}{\i D}({\i L}1\\,{\i L}2)= \\F(1,2){\i K}{\i L}({\i L}1||{\i M})+ \\F(1,2){\i K}{\i L}({\i L}2||{\i M})}}{\fldrslt }}
+\tab{\b0 ({\*\bkmkstart BMjsd}2{\*\bkmkend BMjsd})}\par
+}\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \fi0 JSD is a symmetric form of the Kullback-Leibler Divergence (KL-divergence) between two probability distributions. The KL-divergence, denoted by {{\i K}{\i L}({\i x}||{\i y})} is the unsymmetrical measure of divergence between distributions {{\i x}} and {{\i y}}. In {\field{\*\fldinst{\lang1024 REF BMjsd \\* MERGEFORMAT }}{\fldrslt{?}}}, {{\i L}1} and {{\i L}2} denote the overlap distribution of the L1 and L2 error pairs in their respective language vector spaces, and {{\i M}} is the average of the {{\i L}1} and {{\i L}2} distributions.\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \fi300 Five groups of languages are considered: Germanic, Romance, Asian, Slavic, and Other. Table {\field{\*\fldinst{\lang1024 REF BMtab_lang_groups \\* MERGEFORMAT }}{\fldrslt{?}}} lists the various languages covered in each group. The overlaps for the language groups were normalized into a distribution using the softmax function, defined as: {\par
+\pard\plain\s12\ql\sb120\sa120\keep\widctlpar\f0\tqc\tx3450\tqr\tx6900\sl240\slmult1 \fi0 \tab
+{\field{\*\fldinst{ EQ {\u963*}\\s\\do5({\fs16 {\i i}})({\i x})= \\F({\i e}\\s\\up5({\fs16 {\i x}\\s\\do4({\fs13 {\i i}})}), \\i \\su({\i j},{\i n}, ){\i e}\\s\\up5({\fs16 {\i x}\\s\\do4({\fs13 {\i j}})}))}}{\fldrslt }}
+\tab{\b0 ({\*\bkmkstart BMsoftmax}3{\*\bkmkend BMsoftmax})}\par
+}{\pard\plain\s32\qc\sb120\sa0\keep\widctlpar\f0\fs20\sl240\slmult1 \sb240 \fi0 \par
+\pard\plain\s30\ql\sb120\sa120\keep\widctlpar\f0\sl240\slmult1 \fi0 {Table {\*\bkmkstart BMtab_lang_groups}3{\*\bkmkend BMtab_lang_groups}: Language Groups and the languages that they contain.}{\field{\*\fldinst TC "3 Language Groups and the languages that they contain." \\f t}{\fldrslt }}\par
+{{\pard\plain\s30\ql\sb120\sa120\keep\widctlpar\f0\sl240\slmult1 \fi0 \par
+{\trowd\clbrdrl\brdrs\clbrdrt\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx2780\clbrdrl\brdrs\clbrdrt\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx6900
+{\pard\intbl\qc {  {\b Group}}\cell}
+{\pard\intbl\qc {{\b Languages}}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx2780\clbrdrl\brdrs\clbrdrr\brdrs\cellx6900
+{\pard\intbl\qc {  Romance}\cell}
+{\pard\intbl\qc {Catalan, French, Italian, Portuguese, Spanish}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx2780\clbrdrl\brdrs\clbrdrr\brdrs\cellx6900
+{\pard\intbl\qc {Asian}\cell}
+{\pard\intbl\qc {Chinese (Simplified), Japanese, Korean, Thai}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx2780\clbrdrl\brdrs\clbrdrr\brdrs\cellx6900
+{\pard\intbl\qc {Other}\cell}
+{\pard\intbl\qc {Dutch, Greek, Turkish}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx2780\clbrdrl\brdrs\clbrdrr\brdrs\cellx6900
+{\pard\intbl\qc {Germanic}\cell}
+{\pard\intbl\qc {German, Swedish}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx2780\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx6900
+{\pard\intbl\qc {Slavic}\cell}
+{\pard\intbl\qc {Polish, Russian}\cell}
+\row}
+} \par
+}}\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \sb240 \fi300 The JSD was computed over the overlap distributions in fasttext as well as polyglot, and results are reported in Table {\field{\*\fldinst{\lang1024 REF BMtab_jsd \\* MERGEFORMAT }}{\fldrslt{?}}}.\par
+{\pard\plain\s32\qc\sb120\sa0\keep\widctlpar\f0\fs20\sl240\slmult1 \sb240 \fi0 \par
+\pard\plain\s30\ql\sb120\sa120\keep\widctlpar\f0\sl240\slmult1 \fi0 {Table {\*\bkmkstart BMtab_jsd}4{\*\bkmkend BMtab_jsd}: Jensen-Shannon divergence for Language groups based on overlaps computed in fasttext and polyglot vectors.}{\field{\*\fldinst TC "4 Jensen-Shannon divergence for Language groups based on overlaps computed in fasttext and polyglot vectors." \\f t}{\fldrslt }}\par
+{{\pard\plain\s30\ql\sb120\sa120\keep\widctlpar\f0\sl240\slmult1 \fi0 \par
+{\trowd\clbrdrl\brdrs\clbrdrt\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx3193\clbrdrl\brdrs\clbrdrt\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx5046\clbrdrl\brdrs\clbrdrt\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {  {\b Group}}\cell}
+{\pard\intbl\qc {{\b fasttext}}\cell}
+{\pard\intbl\qc {{\b polyglot}}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx3193\clbrdrl\brdrs\clbrdrr\brdrs\cellx5046\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {  Germanic}\cell}
+{\pard\intbl\qc {0.0043}\cell}
+{\pard\intbl\qc {0.0093}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx3193\clbrdrl\brdrs\clbrdrr\brdrs\cellx5046\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Asian}\cell}
+{\pard\intbl\qc {0.0048}\cell}
+{\pard\intbl\qc {0.0105}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx3193\clbrdrl\brdrs\clbrdrr\brdrs\cellx5046\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Romance}\cell}
+{\pard\intbl\qc {0.0049}\cell}
+{\pard\intbl\qc {0.0100}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrr\brdrs\cellx3193\clbrdrl\brdrs\clbrdrr\brdrs\cellx5046\clbrdrl\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Slavic}\cell}
+{\pard\intbl\qc {0.0050}\cell}
+{\pard\intbl\qc {0.0127}\cell}
+\row}
+{\trowd\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx3193\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx5046\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx6899
+{\pard\intbl\qc {Other}\cell}
+{\pard\intbl\qc {0.0056}\cell}
+{\pard\intbl\qc {0.0105}\cell}
+\row}
+} \par
+}}\pard\plain\s5\ql\sb240\sa120\keepn\f0\b\fs24\sl240\slmult1 \sb360 \fi0 3.4.2  Results\par
+\pard\plain\s0\qj\widctlpar\f0\fs20\sl240\slmult1 \sb60 \fi0 The results in Table {\field{\*\fldinst{\lang1024 REF BMtab_jsd \\* MERGEFORMAT }}{\fldrslt{?}}} show that the divergence values for Germanic languages are the least, indicating a similar behavior between the overlaps in the errors made by German learners of English. \par
+\pard\plain\s3\ql\sb240\sa120\keepn\f0\b\fs32\sl240\slmult1 \sb240 \fi0 4  General Discussion\par
+\pard\plain\s3\ql\sb240\sa120\keepn\f0\b\fs32\sl240\slmult1 \sb300 \fi0 5  Future Work\par
+\pard\plain\s3\ql\sb240\sa120\keepn\f0\b\fs32\sl240\slmult1 \sb300 \fi0 6  Conclusion\par
+}}

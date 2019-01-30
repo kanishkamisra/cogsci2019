@@ -5,11 +5,15 @@ library(philentropy)
 set.seed(1234)
 
 # polyglot_experiment <- read_csv("data/ms_final_with_polyglot_2.csv")
-polyglot_experiment <- read_csv("data/polyglot_experiment_final.csv") %>%
+error_cases <- read_csv("data/experiment_final.csv") %>%
   mutate(case_id = paste0("case_", str_pad(row_number(), width = 4, pad = "0")))
 
 fasttext_experiment <- read_csv("data/ms_final_experiments.csv") %>%
   mutate(case_id = paste0("case_", str_pad(row_number(), width = 4, pad = "0")))
+
+polyglot_experiment <- read_csv("data/polyglot_experiment_final.csv") %>%
+  inner_join(fasttext_experiment %>% distinct(case_id, c, i, id, l1_c, l1_i, language)) %>%
+  distinct()
   
 
 # polyglot_experiment %>%
