@@ -13,7 +13,7 @@ fasttext_experiment <- read_csv("data/ms_final_experiments.csv") %>%
 
 write_csv(fasttext_experiment, "data/fasttext_experiments.csv")
 
-polyglot_experiment <- read_csv("data/polyglot_experiment_final.csv") %>%
+polyglot_experiment <- read_csv("data/ms_final_polyglot_english_3.csv") %>%
   inner_join(fasttext_experiment %>% distinct(case_id, c, i, id, l1_c, l1_i, language)) %>%
   distinct()
 
