@@ -1,9 +1,10 @@
-# Vectors
+# Vectors and Neighbors
 *.bin
 *.vec
 *.vec.gz
 *.pkl
 data/pretrained_embeddings/*
+*.json
 
 # History files
 .Rhistory
