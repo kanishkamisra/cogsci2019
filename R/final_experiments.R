@@ -72,7 +72,7 @@ tidy_overlaps %>%
     x = "Nearest Neighbors"
   )
 
-ggsave("figures/fasttext vs polyglot overlaps.png", height = 7, width = 8)
+ggsave("figures/fasttext vs polyglot overlaps2.png", height = 7, width = 8)
 
 
 results_experiment1 <- tidy_overlaps %>%
@@ -115,9 +115,10 @@ results_experiment1 %>%
     y = ""
   )
 
-ggsave("figures/fasttext vs polyglot correlations.png")
+ggsave("figures/fasttext vs polyglot correlations2.png")
 
 
+### TABLE
 results_experiment1 %>%
   select(-data) %>%
   unnest() %>%
@@ -169,7 +170,7 @@ experiment2_jsd
 experiment2_jsd %>%
   filter(neighbors == 10) %>%
   select(-neighbors, -data) %>%
-  mutate(divergence = round(divergence, 4)) %>%
+  mutate(divergence = round(divergence, 5)) %>%
   spread(model, divergence) %>%
   arrange(fasttext, polyglot) %>%
   knitr::kable(format = "latex", booktabs = T, caption = "Jensen-Shannon divergence for Language groups based on overlaps computed in fasttext and polyglot vectors.") %>%

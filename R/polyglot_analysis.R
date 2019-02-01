@@ -13,8 +13,9 @@ fasttext_experiment <- read_csv("data/ms_final_experiments.csv") %>%
 
 write_csv(fasttext_experiment, "data/fasttext_experiments.csv")
 
-polyglot_experiment <- read_csv("data/ms_final_polyglot_english_3.csv") %>%
+polyglot_experiment <- read_csv("data/ms_final_with_polyglot_3.csv") %>%
   inner_join(fasttext_experiment %>% distinct(case_id, c, i, id, l1_c, l1_i, language)) %>%
+  filter(language != "Japanese") %>%
   distinct()
 
   
@@ -170,7 +171,8 @@ polyglot_final <- polyglot_experiment %>%
   mutate(metric = str_replace(metric, "sim_", "")) %>%
   separate(metric, into = c("type", "model", "neighbors"), sep = "_") %>%
   spread(type, overlap) %>%
-  mutate(neighbors = as.numeric(neighbors))
+  mutate(neighbors = as.numeric(neighbors)) %>%
+  filter(l1 != -10, l2 != -10)
 
 fasttext_final <- fasttext_experiment %>%
   select_at(vars("case_id", "person_id" = "id","language", "type", "i", "c", "l1_i", "l1_c", contains("cc"))) %>%
@@ -192,7 +194,8 @@ tidy_overlaps %>%
   write_csv("data/tidy_overlaps.csv")
 
 tidy_overlaps %>%
-  filter(model == "polyglot")
+  filter(model == "polyglot", neighbors == 10)
+  
 
 ## Overlaps Between
 
