@@ -340,3 +340,9 @@ tidy_overlaps %>%
   select(-data) %>%
   knitr::kable(format = "latex", booktabs = T, caption = "Language Groups and the languages that they contain.")
 
+
+#### ERROR ANALYSIS
+
+tidy_overlaps %>% 
+  filter(neighbors == 10, language == "Spanish")
+  
