@@ -103,19 +103,22 @@ results_experiment1 %>%
   ggplot(aes(estimate, language)) +
   geom_point() +
   geom_errorbarh(aes(xmin = low, xmax = high)) +
-  scale_x_continuous(limits = c(-0.5, 1)) +
+  scale_x_continuous(limits = c(-0.25, 1)) +
+  # scale_y_discrete(expand = c(0, 1.9)) +
   facet_wrap(~ model) +
-  theme_light(base_family = "CMU Sans Serif") +
+  # coord_fixed(ratio = 1/8) +
+  theme_light(base_family = "CMU Sans Serif", base_size = 18) +
   theme(
     strip.text = element_text(color = "black", face = "bold"), 
-    axis.title.y = element_blank()
+    axis.title.y = element_blank(),
+    axis.ticks.length=unit(0, "lines")
   ) +
   labs(
     x = "Spearman's Correlation",
     y = ""
   )
 
-ggsave("figures/fasttext vs polyglot correlations2.png")
+ggsave("figures/fasttext vs polyglot correlations2_large2.png", height = 8, width = 8)
 
 
 ### TABLE
