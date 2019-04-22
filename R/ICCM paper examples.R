@@ -6,6 +6,11 @@ tidy_overlaps <- read_csv("data/tidy_overlaps.csv") %>%
 fasttext_neighbors <- read_csv("python/fasttext_result_set_sim.csv")
 polyglot_neighbors <- read_csv("python/poly_result_set_sim.csv")
 
+answers <- read_csv("data/answers_parsed.csv") %>%
+  mutate(
+    person_id = paste("person", str_extract(file_name, "(?<=doc)(.*)(?=\\.xml)"), sep = "_")
+  )
+
 tidy_overlaps %>%
   filter(case_id == "case_0007")
 
@@ -25,7 +30,8 @@ polyglot_neighbors %>%
 tidy_overlaps %>%
   mutate(difference = abs(l1-l2)) %>%
   arrange(-(difference)) %>%
-  select(case_id, language, i, c, l1_i, l1_c, difference, l1, l2)
+  select(case_id, language, i, c, l1_i, l1_c, difference, l1, l2) %>%
+  filter(between(l1, 0.5, 0.99), l2 > 0) %>% View()
 
 neighborhoods <- function(case) {
   
@@ -70,6 +76,24 @@ neighborhoods <- function(case) {
   return(bind_cols(neighbors_l1, neighbors_l2))
 }
 
-neighborhoods(case = "case_3391")
+# get_answers <- function(case)
+
+neighborhoods(case = "case_4340") %>%
+  pull(word_l1) %>% 
+  glue::glue_collapse(sep = ", ")
+tidy_overlaps %>%
+  filter(case_id == "case_4340")
+
+tidy_overlaps %>%
+  mutate(difference = abs(l1-l2)) %>%
+  arrange(-(difference)) %>%
+  select(case_id, language, i, c, l1_i, l1_c, difference, l1, l2) %>%
+  filter(between(l1, 0.5, 0.99), l2 > 0, l1_i != l1_c, language == "Russian") %>% View()
+
+tidy_overlaps %>%
+  filter(case_id == "case_4340")
+
+answers %>% filter(person_id == "person_514") %>%
+  pull(i)
 
 
