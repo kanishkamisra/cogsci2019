@@ -8,6 +8,7 @@ examples <- read_csv("data/ms_final_experiments.csv")
 errors <- read_csv("data/experiment_final.csv")
 english_vectors <- read.vectors("../data/pretrained_embeddings/cc.en.300.vec", binary = F)
 russian_vectors <- read.vectors("../data/pretrained_embeddings/cc.ru.vec", binary = F)
+eng_poly <- read.vectors("data/")
 
 # examples %>%
 #   mutate(case_id = paste0("case_", str_pad(row_number(), width = 4, pad = "0"))) %>%

@@ -23,30 +23,53 @@ polyglot_neighbors %>%
 
 
 tidy_overlaps %>%
-  mutate(difference = l1-l2) %>%
+  mutate(difference = abs(l1-l2)) %>%
   arrange(-(difference)) %>%
   select(case_id, language, i, c, l1_i, l1_c, difference, l1, l2)
 
-neighborhoods <- function(case_id) {
-  polyglot_neighbors %>%
-    
+neighborhoods <- function(case) {
+  
+  neighbors_l1 <- polyglot_neighbors %>%
+    filter(case_id == case) %>%
+    select_at(vars(contains("l1_"))) %>%
+    gather(type, word, contains("_nn_")) %>%
+    mutate(
+      kind = str_extract(type, ".+?(?=_nn)"),
+      type = case_when(
+        str_detect(type, "sim") ~ "sim_l1",
+        TRUE ~ "word_l1"
+      )
+    ) %>%
+    group_by(type, kind) %>%
+    mutate(
+      extra = row_number()
+    ) %>% 
+    spread(type, word, drop = F) %>%
+    select(-extra) %>%
+    ungroup()
+  
+  neighbors_l2 <- polyglot_neighbors %>%
+    filter(case_id == case) %>%
+    select_at(vars(-contains("l1_"))) %>%
+    gather(type, word, contains("_nn_")) %>%
+    mutate(
+      kind = str_extract(type, ".+?(?=_nn)"),
+      type = case_when(
+        str_detect(type, "sim") ~ "sim_english",
+        TRUE ~ "word_english"
+      )
+    ) %>%
+    group_by(type, kind) %>%
+    mutate(
+      extra = row_number()
+    ) %>% 
+    spread(type, word, drop = F) %>%
+    select(-extra) %>%
+    ungroup()
+  
+  return(bind_cols(neighbors_l1, neighbors_l2))
 }
 
+neighborhoods(case = "case_3391")
 
-polyglot_neighbors %>%
-  filter(case_id == "case_2331") %>%
-  select_at(vars(contains("l1_"))) %>%
-  gather(type, word, contains("_nn_")) %>%
-  mutate(
-    kind = str_sub(type, 1, 1),
-    type = case_when(
-      str_detect(type, "sim") ~ "sim",
-      TRUE ~ "word_english"
-    )
-  ) %>%
-  group_by(type, kind) %>%
-  mutate(
-    extra = row_number()
-  ) %>% 
-  spread(type, word, drop = F) %>%
-  select(-extra)
+

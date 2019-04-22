@@ -98,12 +98,16 @@ results_experiment1 %>%
   select(-data) %>%
   unnest() %>%
   filter(neighbors == 10) %>%
+  mutate(
+    language = case_when(language == "Chinese (Simplified)" ~ "Chinese", TRUE ~ language)
+  ) %>%
   # group_by(model) %>%
   mutate(language = fct_reorder(language, estimate)) %>%
-  ggplot(aes(estimate, language)) +
-  geom_point() +
-  geom_errorbarh(aes(xmin = low, xmax = high)) +
-  scale_x_continuous(limits = c(-0.25, 1)) +
+  ggplot(aes(estimate, language, color = model)) +
+  geom_point(size = 2.5, show.legend = F) +
+  geom_errorbarh(aes(xmin = low, xmax = high), show.legend = F, size = 1) +
+  scale_x_continuous(limits = c(-0.25, 1), breaks = c(-0.25, 0, 0.25, 0.5, 0.75, 1.0)) +
+  scale_color_manual(values = c("#2b90d9", "#ff7473")) +
   # scale_y_discrete(expand = c(0, 1.9)) +
   facet_wrap(~ model) +
   # coord_fixed(ratio = 1/8) +
@@ -118,7 +122,7 @@ results_experiment1 %>%
     y = ""
   )
 
-ggsave("figures/fasttext vs polyglot correlations2_large2.png", height = 8, width = 8)
+ggsave("figures/fasttext_vs_polyglot_correlations2_large3.png", height = 8, width = 10)
 
 
 ### TABLE
