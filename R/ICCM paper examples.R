@@ -1,5 +1,8 @@
 library(tidyverse)
 
+overlaps <- read_csv("data/tidy_overlaps.csv") %>%
+  filter(neighbors == 10)
+
 tidy_overlaps <- read_csv("data/tidy_overlaps.csv") %>%
   filter(neighbors == 10) %>%
   filter(model == "polyglot")
@@ -97,3 +100,5 @@ answers %>% filter(person_id == "person_514") %>%
   pull(i)
 
 
+overlaps %>% ggplot(aes(l1, l2)) + geom_point() + geom_smooth(method = "lm") + facet_grid(model~language, scale = "free")
+  
