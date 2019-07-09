@@ -8,6 +8,40 @@ set.seed(1234)
 tidy_overlaps <- read_csv("data/tidy_overlaps.csv")
 errors <- read_csv("data/ms_final_experiments.csv")
 
+errors %>% 
+  mutate(edit_dist = map2_dbl(c, i, ~adist(.x, .y))) %>% 
+  select(language, c, i, edit_dist) %>%
+  count(language, edit_dist) %>%
+  group_by(language) %>%
+  mutate(lang_count = sum(n)) %>%
+  ungroup() %>%
+  filter(language != "Dutch") %>%
+  mutate(
+    group = case_when(
+      language %in% c("Russian", "Polish") ~ "Slavic",
+      language %in% c("German", "Swedish") ~ "Germanic",
+      language %in% c("French", "Spanish", "Catalan", "Italian", "Portuguese") ~ "Romance",
+      language %in% c("Chinese (Simplified)", "Japanese", "Korean", "Thai") ~ "Asian",
+      TRUE ~ "Other"
+    )
+  ) %>%
+  mutate(language = fct_reorder(language, -lang_count)) %>%
+  ggplot(aes(edit_dist, n)) +
+  geom_col(width = 1, show.legend = F, alpha = 0.7, color = "#004e66", fill = "#004e66") +
+  facet_wrap(~language) +
+  scale_x_continuous(breaks = scales::pretty_breaks(6)) +
+  theme_light(base_family = "CMU Serif", base_size = 15) +
+  theme(
+    strip.text = element_text(color = "black", face = "bold", family = "CMU Sans Serif"), 
+    axis.title.y = element_blank(),
+    axis.title.x = element_text(family = "CMU Sans Serif"),
+    axis.ticks.length=unit(0, "lines"),
+    axis.text = element_text(color = "black")
+  ) +
+  labs(
+    x = "Edit Distance"
+  )
+
 tidy_overlaps %>% 
   filter(model == "fasttext") %>% 
   group_by(neighbors) %>% 
@@ -93,27 +127,39 @@ results_experiment1 <- tidy_overlaps %>%
     bootstrapped_ci = map(data, strap_ci)
   )
 
-
 results_experiment1 %>%
   select(-data) %>%
   unnest() %>%
+  write_csv("data/exp1_results.csv")
+
+results_experiment1 <- read_csv("data/exp1_results.csv")
+
+results_experiment1 %>%
+  # select(-data) %>%
+  unnest() %>%
   filter(neighbors == 10) %>%
   mutate(
-    language = case_when(language == "Chinese (Simplified)" ~ "Chinese", TRUE ~ language)
+    language = case_when(language == "Chinese (Simplified)" ~ "Chinese", TRUE ~ language),
+    p_string = case_when(
+      p.value < 0.001 ~ "bolditalic('p <.001')",
+      p.value < 0.05 ~ "bolditalic('p < .05')",
+      TRUE ~ "bold('p > .05')"
+    )
   ) %>%
   # group_by(model) %>%
   mutate(language = fct_reorder(language, estimate)) %>%
   ggplot(aes(estimate, language, color = model)) +
   geom_point(size = 2.5, show.legend = F) +
   geom_errorbarh(aes(xmin = low, xmax = high), show.legend = F, size = 1) +
-  scale_x_continuous(limits = c(-0.25, 1), breaks = c(-0.25, 0, 0.25, 0.5, 0.75, 1.0)) +
+  geom_label(aes(y = language, label = p_string), x = 1.00, show.legend = F, parse = T) +
+  scale_x_continuous(limits = c(-0.25, 1.1), breaks = c(-0.25, 0, 0.25, 0.5, 0.75, 1.0)) +
   scale_color_manual(values = c("#2b90d9", "#ff7473")) +
   # scale_y_discrete(expand = c(0, 1.9)) +
   facet_wrap(~ model) +
   # coord_fixed(ratio = 1/8) +
-  theme_light(base_family = "CMU Sans Serif", base_size = 18) +
+  theme_light(base_family = "CMU Sans Serif", base_size = 20) +
   theme(
-    strip.text = element_text(color = "black", face = "bold"), 
+    strip.text = element_text(color = "black", face = "bold", size = 18), 
     axis.title.y = element_blank(),
     axis.ticks.length=unit(0, "lines")
   ) +
@@ -123,6 +169,7 @@ results_experiment1 %>%
   )
 
 ggsave("figures/fasttext_vs_polyglot_correlations2_large3.png", height = 8, width = 10)
+ggsave("figures/fasttext_vs_polyglot_poster.png", height = 8, width = 10)
 
 
 ### TABLE

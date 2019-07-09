@@ -102,3 +102,11 @@ answers %>% filter(person_id == "person_514") %>%
 
 overlaps %>% ggplot(aes(l1, l2)) + geom_point() + geom_smooth(method = "lm") + facet_grid(model~language, scale = "free")
   
+
+tidy_overlaps %>%
+  filter(case_id == "case_3654")
+
+
+neighborhoods("case_3654") %>%
+  pull(word_english) %>%
+  glue::glue_collapse(sep = " ")
